@@ -1,9 +1,12 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: 0;
-    font-family: "";
+    font-family: "Raleway", sans-serif;
 }
   
 .page {
@@ -88,6 +91,7 @@ svg {
 body{
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-size: 18px;
 }
 
 input,
@@ -105,6 +109,23 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", sans-serif;;
+}
+
+h1{
+    font-size: 36px;
+}
+
+h3{
+    font-size: 24px;
 }
 
 ul {
