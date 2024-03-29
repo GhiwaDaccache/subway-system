@@ -12,9 +12,11 @@ const App = () => {
   return(
     <div className="app">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   )
