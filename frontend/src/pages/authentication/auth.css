@@ -144,6 +144,18 @@
   color: var(--clrs-primary-);
 }
 
+.forgot_password_text {
+  font-weight: bold;
+  font-size: 12px;
+  align-self: flex-start;
+  color: var(--clrs-secondary-);
+  cursor: pointer;
+}
+
+.forgot_password_text:hover {
+  color: var(--clrs-blue-dark-);
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -164,6 +176,11 @@ Media Queries BreakPoints :
 */
 
 @media (max-width: 1024px) {
+  .auth_submit_container {
+    width: 70%;
+    margin-top: -120px;
+  }
+
   .auth_container {
     flex-direction: column !important;
   }
@@ -172,22 +189,26 @@ Media Queries BreakPoints :
     width: 100%;
     min-height: 40vh;
   }
-
-  .auth_submit_container {
-    width: 60%;
-    margin-top: -100px;
-  }
 }
 
 @media (max-width: 769px) {
   .auth_submit_container input {
     width: 100%;
   }
+
+  .auth_form_container {
+    width: 65%;
+  }
 }
 
 @media (max-width: 481px) {
-  .auth_submit_container input {
+  .auth_submit_container {
     width: 80%;
+    margin-top: -140px;
+  }
+
+  .auth_submit_container input {
+    width: 100%;
   }
 
   .switch_interfaces_container span {
@@ -203,18 +224,26 @@ Media Queries BreakPoints :
     padding: 0;
   }
 
+  .check_fieldset label {
+    font-size: 12px !important;
+  }
+
   .check_fieldset input[type='checkbox'] {
-    width: 12px !important;
+    width: 10px !important;
   }
 
   .submit_btn {
     padding: 6px 15px;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 14px;
     border-radius: 3px;
   }
 
   .guest_text {
     font-size: 14px;
+  }
+
+  .forgot_password_text {
+    font-size: 10px;
   }
 }
