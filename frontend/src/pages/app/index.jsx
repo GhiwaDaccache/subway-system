@@ -22,7 +22,6 @@ const App = () => {
   return (
     <div className="app_container">
       <Navbar windowSize={windowSize} />
-      <p>Window size: {windowSize.width} </p>
       <Outlet />
       <Footer />
     </div>

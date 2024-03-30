@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './home.css';
+import './map.css';
 
-function Home() {
+function Map() {
   return (
     <div className="section">
-      <h1>Home</h1>
+      <h1>Map</h1>
     </div>
   );
 }
 
-export default Home;
+export default Map;

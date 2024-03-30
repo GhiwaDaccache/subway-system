@@ -20,19 +20,18 @@
   flex-direction: column;
   height: fit-content;
   align-items: center;
-  justify-content: center;
   margin: 75px auto;
-  text-align: center;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 35%;
   z-index: 2;
   padding: 30px 10px;
+  text-align: center;
 }
 
 .switch_interfaces_container {
   font-weight: bold;
-  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .switch_interfaces_container span {
@@ -63,7 +62,7 @@
 .auth_form_container fieldset {
   width: 100%;
   font-weight: 500;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 5px;
   margin-bottom: 20px;
@@ -95,10 +94,10 @@
 
 .check_fieldset {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 5px;
   margin-bottom: 20px !important;
 }
 
@@ -111,8 +110,9 @@
 }
 
 .check_fieldset input[type='checkbox'] {
-  width: 20px !important;
   min-width: 5px;
+  width: 11px;
+  align-self: center;
 }
 
 .submit_btn {
