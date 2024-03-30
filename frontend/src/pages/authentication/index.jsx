@@ -44,7 +44,9 @@ function Form() {
           <label>Remember Me</label>
         </fieldset>
 
-        <button type="submit"></button>
+        <button className="submit_btn" type="submit">
+          Submit
+        </button>
       </form>
       <p className="guest_text">Enter as a Guest</p>
     </div>

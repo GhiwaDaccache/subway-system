@@ -1,6 +1,6 @@
 .auth_container {
   display: flex;
-  background: linear-gradient(to right, #373b44, #4286f4);
+  background: linear-gradient(to bottom, #4286f4, rgba(27, 38, 44, 0.9));
   height: 100vh;
 }
 
@@ -10,12 +10,12 @@
   background-position: center;
   height: 100%;
   width: 45%;
-  z-index: 10;
+  z-index: 1;
 }
 
 .auth_submit_container {
   color: var(--clrs-secondary--);
-  background-color: whitesmoke;
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -28,9 +28,6 @@
   width: 35%;
   z-index: 2;
   padding: 30px 10px;
-}
-
-.auth_form_container {
 }
 
 .switch_interfaces_container {
@@ -46,9 +43,9 @@
 }
 
 .switch_interfaces_container span.auth_active {
-  background-color: var(--clrs-primary-);
+  background-color: var(--clrs-secondary-);
   color: var(--clrs-white-);
-  border-radius: 4px;
+  border-radius: 2.5px;
 }
 
 .switch_interfaces_container span.auth_active:hover {
@@ -90,9 +87,10 @@
   border-radius: 2px;
   min-width: 150px;
   outline: none;
-  padding: 0.3rem 2rem;
   text-align: center;
   color: var(--clrs-primary-);
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .check_fieldset {
@@ -100,8 +98,8 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  margin: 0;
   padding: 0;
+  margin-bottom: 20px !important;
 }
 
 .check_fieldset label {
@@ -113,13 +111,37 @@
 }
 
 .check_fieldset input[type='checkbox'] {
-  width: 30px !important;
+  width: 20px !important;
   min-width: 5px;
+}
+
+.submit_btn {
+  margin-bottom: 10px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+  background-color: var(--clrs-primary-);
+  color: whitesmoke;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.submit_btn:hover {
+  background-color: var(--clrs-blue-dark-);
 }
 
 .guest_text {
   font-weight: bold;
   color: var(--clrs-blue-dark-);
+  font-size: 18px;
+  color: var(--clrs-secondary-);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.guest_text:hover {
+  color: var(--clrs-primary-);
 }
 
 .overlay {
@@ -128,7 +150,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(1, 40, 66, 0.3);
+  background-color: rgba(1, 40, 66, 0.55);
   z-index: 1;
 }
 
@@ -148,6 +170,51 @@ Media Queries BreakPoints :
 
   .auth_bg_container {
     width: 100%;
-    min-height: 30vh;
+    min-height: 40vh;
+  }
+
+  .auth_submit_container {
+    width: 60%;
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 769px) {
+  .auth_submit_container input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 481px) {
+  .auth_submit_container input {
+    width: 80%;
+  }
+
+  .switch_interfaces_container span {
+    margin-bottom: 25px;
+    font-size: 13px;
+  }
+
+  .auth_form_container fieldset label {
+    font-size: 13px;
+  }
+
+  .auth_form_container fieldset input {
+    padding: 0;
+  }
+
+  .check_fieldset input[type='checkbox'] {
+    width: 12px !important;
+  }
+
+  .submit_btn {
+    padding: 6px 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-radius: 3px;
+  }
+
+  .guest_text {
+    font-size: 14px;
   }
 }
