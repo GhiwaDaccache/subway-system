@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Sidebar() {
     const navigate = useNavigate();
-    const handleNavigation= ()=>{
+    const handleNavigation= (path)=>{
         console.log("ashraf");
-        navigate('/admin');
+        navigate(path);
     }
 
     
@@ -14,7 +14,7 @@ function Sidebar() {
 return <div className="side-bar secondary-bg">
     <ul>
         <li>Dashboard</li>
-        <li onClick={handleNavigation}>Add Managers</li>
+        <li >Add Managers</li>
         <li>Edit Branches</li>
         <li>Coin Requests</li>
     </ul>

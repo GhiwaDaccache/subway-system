@@ -1,11 +1,8 @@
-/* .admin_container {
-  background-color: rgb(255, 255, 255);
-  color: rgb(31, 51, 231);
-} */
+
 
 .side-bar{
   height:100vh;
-  width: 350px;
+  width: 25%;
 }
 ul{
   font-size: 36px;
