@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string("email");
             $table->string("password");
             $table->integer("coins");
-            $table->tinyInteger("premium");
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('passengers');
     }
 };
