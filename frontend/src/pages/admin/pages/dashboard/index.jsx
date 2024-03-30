@@ -1,3 +1,6 @@
+import PassengerCard from "./components/passenger-card";
+import "./index.css";
+
 function Dashboard() {
   return (
     <div className="admin-dashboard flex column">
@@ -7,7 +10,10 @@ function Dashboard() {
         <button>Rides</button>
         <button>Reviews</button>
       </div>
-      <div className="dashboard-veiw"></div>
+      <div className="dashboard-veiw flex column">
+        <PassengerCard/>
+        
+      </div>
     </div>
   );
 }

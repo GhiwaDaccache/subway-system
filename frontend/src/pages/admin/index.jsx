@@ -1,5 +1,5 @@
 import React from 'react';
-import './admin.css';
+import './components/sidebar.css';
 import './index.css';
 import Sidebar from './components/sidebar';
 import Dashboard from './pages/dashboard';

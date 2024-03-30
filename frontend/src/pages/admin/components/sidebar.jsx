@@ -14,7 +14,7 @@ function Sidebar() {
 return <div className="side-bar secondary-bg">
     <ul>
         <li>Dashboard</li>
-        <li >Add Managers</li>
+        <li>Invite Managers</li>
         <li>Edit Branches</li>
         <li>Coin Requests</li>
     </ul>
