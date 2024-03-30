@@ -1,12 +1,18 @@
 import React from 'react';
 import './app.css';
+import { Outlet } from 'react-router'; // This Component will act as a placeholder for any child root
 
-function App() {
+import Navbar from './pages/navbar';
+import Footer from './pages/footer';
+
+const App = () => {
   return (
     <div className="app_container">
-      <h1>App</h1>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
