@@ -1,6 +1,7 @@
 import PassengerCard from "./components/passenger-card";
 import StationCard from "./components/stations-card";
 import RideCard from "./components/ride-card";
+import ReviewCard from "./components/review-card";
 import "./index.css";
 
 function Dashboard() {
@@ -16,6 +17,7 @@ function Dashboard() {
         <PassengerCard/>
         <StationCard/>
         <RideCard/>
+        <ReviewCard/>
         
       </div>
     </div>
