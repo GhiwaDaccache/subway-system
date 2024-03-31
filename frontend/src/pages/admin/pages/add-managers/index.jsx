@@ -1,3 +1,4 @@
+import ViewManagers from "./components/view-managers";
 import "./index.css";
 
 function InviteManagers() {
@@ -8,8 +9,9 @@ function InviteManagers() {
         <button>Invite</button>
       
       </div>
-      <div className="admin-veiw flex column">
-  
+      <div className="admin-view flex column">
+        <ViewManagers/>
+        <ViewManagers/>
       </div>
     </div>
   );

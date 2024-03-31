@@ -8,7 +8,7 @@ function CoinRequest() {
         <button>Invite</button>
       
       </div>
-      <div className="admin-veiw flex column">
+      <div className="admin-view flex column">
   
       </div>
     </div>
