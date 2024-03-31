@@ -18,8 +18,9 @@
         padding: 50px;
         gap:20px;
     }
-    .passenger-card{
+    .dashboard-card{
         background-color: #BBE1FA;
-        height: 100px;
+        height: fit-content;
         border-radius: 15px;
+        padding: 20px;
     }
