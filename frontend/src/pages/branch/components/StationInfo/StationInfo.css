@@ -87,3 +87,23 @@
     height: 100%; 
 }
 
+.facilities-section{
+    max-width: 350px;
+    min-width: 350px;
+    height: 72vh;
+}
+
+.facilities-section > div{
+    height: 90%;
+    width: 85%;
+    background-color: #F1FAFF;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.facility{
+    width: 85%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+}
