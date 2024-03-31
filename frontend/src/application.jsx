@@ -12,6 +12,10 @@ import Home from './pages/app/pages/home';
 import Profile from './pages/app/pages/profile';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/admin/pages/dashboard';
+import InviteManagers from './pages/admin/pages/add-managers';
+import EditBranches from './pages/admin/pages/edit-branches';
+import CoinRequest from './pages/admin/pages/coin-requests';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +44,24 @@ const router = createBrowserRouter([
     path: '/admin',
     element: <Admin />,
     errorElement: <NotFoundPage />,
+    children:[
+      {
+        path:'/admin/',
+        element:<Dashboard/>
+      },
+      {
+        path:'/admin/managers',
+        element:<InviteManagers/>
+      },
+      {
+        path:'/admin/branches',
+        element:<EditBranches/>
+      },
+      {
+        path:'/admin/coinrequests',
+        element:<CoinRequest/>
+      }
+    ]
   },
 ]);
 
