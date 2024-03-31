@@ -1,0 +1,14 @@
+.admin-container {
+  width: 75%;
+}
+.admin-view {
+  width: 100%;
+  padding: 50px;
+  gap: 20px;
+}
+.admin-cards {
+  background-color: #bbe1fa;
+  height: fit-content;
+  border-radius: 15px;
+  padding: 20px;
+}

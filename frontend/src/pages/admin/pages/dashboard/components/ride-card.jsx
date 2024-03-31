@@ -1,6 +1,6 @@
 function RideCard() {
   return (
-    <div className="dashboard-card flex   justify-around">
+    <div className="admin-cards  flex   justify-around">
       <div className=" flex column  justify-around">
         <div>Ride Number:</div>
         <div>Departure Station:</div>

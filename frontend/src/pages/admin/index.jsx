@@ -9,6 +9,7 @@ function Admin() {
     <div className="flex full-w">
       <Sidebar/>
       <Dashboard/>
+
     </div>
   );
 }
