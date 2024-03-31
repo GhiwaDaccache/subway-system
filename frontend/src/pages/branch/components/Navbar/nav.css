@@ -1,0 +1,98 @@
+.nav_bar {
+    padding: 15px 30px;
+    font-weight: 500;
+    border-bottom: 2px solid var(--clrs-blue-light-);
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .nav_bar ul {
+    gap: 20px;
+  }
+  
+  .nav_bar li {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .nav_bar ul li:hover {
+    color: var(--clrs-blue-light-);
+  }
+  
+  .navbar_custom_menu_icon {
+    font-size: 24px !important;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out !important;
+  }
+  .navbar_custom_menu_icon:hover {
+    color: var(--clrs-blue-light-);
+  }
+  
+  .nav_mobile {
+    position: absolute;
+    top: 9.2vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    background-color: rgba(27, 38, 44, 0.9);
+    gap: 0 !important;
+    text-transform: uppercase;
+  }
+  
+  .nav_mobile li {
+    width: 100%;
+    align-self: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--clrs-blue-light-);
+    font-size: 13px !important;
+    font-weight: bold;
+  }
+  
+  .nav_mobile li:hover {
+    background-color: var(--clrs-blue-light-);
+    color: var(--clrs-secondary-) !important;
+    border-bottom: 1px solid var(--clrs-blue-dark-) !important;
+  }
+  
+  /* 
+  Media Queries BreakPoints : 
+    - 320px — 480px: Mobile devices
+    - 481px — 768px: iPads, Tablets
+    - 769px — 1024px: Small screens, laptops
+    - 1025px — 1200px: Desktops, large screens
+    - 1201px and more —  Extra large screens, TV
+  */
+  
+  @media (max-width: 481px) {
+    .nav_bar {
+      padding: 15px 5px;
+      font-weight: 600;
+    }
+  
+    .logo {
+      font-size: 24px;
+    }
+  
+    .nav_bar ul {
+      gap: 20px;
+    }
+  
+    .nav_bar li {
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  
+    .nav_bar ul li:hover {
+      color: var(--clrs-blue-light-);
+    }
+  }
+  

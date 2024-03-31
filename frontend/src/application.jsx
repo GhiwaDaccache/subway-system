@@ -10,6 +10,9 @@ import Authentication from './pages/authentication';
 import NotFoundPage from './pages/NotFoundPage';
 import Home from './pages/app/pages/home';
 import Profile from './pages/app/pages/profile';
+import Branch from './pages/branch';
+import Inbox from './pages/branch/Inbox';
+import Reviews from './pages/branch/Reviews';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -39,6 +42,22 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <Admin />,
+    errorElement: <NotFoundPage />,
+  },
+
+  {
+    path: '/branch',
+    element: <Branch />,
+    children: [
+      {
+        path: 'pages/branch/Reviews',
+        element: <Reviews />,
+      },
+      {
+        path: 'pages/branch/Inbox' ,
+        element: <Inbox />,
+      },
+    ],
     errorElement: <NotFoundPage />,
   },
 ]);
