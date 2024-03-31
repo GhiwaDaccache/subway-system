@@ -8,6 +8,7 @@ function EditBranches() {
  
       <div className="admin-view flex column">
         <ViewBranches/>
+ 
 
       </div>
       

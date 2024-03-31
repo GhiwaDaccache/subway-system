@@ -9,7 +9,7 @@ import EditBranches from './pages/edit-branches';
 
 function Admin() {
   return (
-    <div className="flex full-w">
+    <div className="flex full-w full-h">
       <Sidebar/>
       {/* <Dashboard/> */}
       {/* <CoinRequest/> */}
