@@ -1,0 +1,16 @@
+.email-input{
+    width:600px;
+    height: 50px;
+    border-radius: 5px;
+   
+}
+.invite-input{
+    width: 100%;
+    height: 15%;
+}
+.invite-input > button {
+    background-color: #bbe1fa;
+    height: 50px;
+    width: 125px;
+    border-radius: 5px;
+  }

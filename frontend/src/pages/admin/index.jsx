@@ -1,10 +1,17 @@
 import React from 'react';
-import './admin.css';
+import './components/sidebar.css';
+import './index.css';
+import Sidebar from './components/sidebar';
+import Dashboard from './pages/dashboard';
+import CoinRequest from './pages/coin-requests';
 
 function Admin() {
   return (
-    <div className="admin_container">
-      <h1>Admin</h1>
+    <div className="flex full-w">
+      <Sidebar/>
+      {/* <Dashboard/> */}
+      <CoinRequest/>
+
     </div>
   );
 }
