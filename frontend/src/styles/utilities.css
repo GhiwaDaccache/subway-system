@@ -153,7 +153,7 @@ ul {
   --clrs-secondary-: #1b262c;
   --clrs-blue-dark-: #0f4c75;
   --clrs-blue-light-: #bbe1fa;
-  --clrs-white-somke: #ffff;
+  --clrs-white-: #ffff;
 
   --clrs-secondary-transparent: rgba(27, 38, 44, 0.9);
 }
@@ -171,5 +171,5 @@ ul {
 }
 
 .section {
-  min-height: 78vh;
+  min-height: 78 vh;
 }

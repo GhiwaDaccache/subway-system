@@ -69,7 +69,11 @@
 }
 
 .auth_form_container fieldset:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 30px;
+}
+
+.remove_extra_margin {
+  margin-bottom: 0px !important;
 }
 
 .auth_form_container fieldset label {
@@ -194,6 +198,10 @@ Media Queries BreakPoints :
 @media (max-width: 769px) {
   .auth_submit_container input {
     width: 100%;
+  }
+
+  .auth_form_container fieldset:last-of-type {
+    margin-bottom: 20px;
   }
 
   .auth_form_container {
