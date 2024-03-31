@@ -1,4 +1,5 @@
 import PassengerCard from "./components/passenger-card";
+import StationCard from "./components/stations-card";
 import "./index.css";
 
 function Dashboard() {
@@ -12,6 +13,7 @@ function Dashboard() {
       </div>
       <div className="dashboard-veiw flex column">
         <PassengerCard/>
+        <StationCard/>
         
       </div>
     </div>
