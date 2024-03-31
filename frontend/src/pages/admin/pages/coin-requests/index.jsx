@@ -1,15 +1,17 @@
+import CoinRequestCard from "./component/request-card";
 import "./index.css";
+
 
 function CoinRequest() {
   return (
     <div className="admin-container flex column">
-      <div className="invite-input flex justify-around align-center">
-        <input className="email-input light-blue-bg" type="email" placeholder="  Enter Manager's Email"></input>
-        <button>Invite</button>
-      
-      </div>
-      <div className="admin-view flex column">
-  
+
+      <div className="coin-requests-view flex center">
+          <CoinRequestCard/>
+          <CoinRequestCard/>
+          <CoinRequestCard/>
+          <CoinRequestCard/>
+          
       </div>
     </div>
   );
