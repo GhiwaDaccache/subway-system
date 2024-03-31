@@ -2,14 +2,13 @@ import "./index.css";
 
 function CoinRequest() {
   return (
-    <div className="admin-dashboard flex column">
-      <div className="dashboard-buttons flex justify-around align-center">
-        <button>Passengers</button>
-        <button>Stations</button>
-        <button>Rides</button>
-        <button>Reviews</button>
+    <div className="admin-container flex column">
+      <div className="invite-input flex justify-around align-center">
+        <input className="email-input light-blue-bg" type="email" placeholder="  Enter Manager's Email"></input>
+        <button>Invite</button>
+      
       </div>
-      <div className="dashboard-veiw flex column">
+      <div className="admin-veiw flex column">
   
       </div>
     </div>
