@@ -62,7 +62,7 @@
 .auth_form_container fieldset {
   width: 100%;
   font-weight: 500;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   gap: 5px;
   margin-bottom: 20px;
