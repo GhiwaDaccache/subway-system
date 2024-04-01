@@ -1,0 +1,13 @@
+.branch-buttons{
+    background-color: #0F4C75;
+    height: 30px;
+    width: 125px;
+    border-radius: 5px;
+    color: white;
+}
+.branch-cards {
+    background-color: #bbe1fa;
+    height: 150px;
+    border-radius: 15px;
+    padding: 20px;
+  }

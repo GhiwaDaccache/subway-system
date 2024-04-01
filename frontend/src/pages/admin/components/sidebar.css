@@ -1,8 +1,10 @@
 
 
 .side-bar{
-  height:100vh;
+  min-height: 100vh;
   width: 25%;
+  flex-grow: 1;
+  
 }
 ul{
   font-size: 36px;
