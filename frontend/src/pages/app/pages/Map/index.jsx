@@ -114,7 +114,7 @@ function Recommendations() {
         </div>
 
         <div className="recommendations_box flex justify-between">
-          <p>Station 3</p>
+          <p>Station 2</p>
           <p className="flex a-center">
             2
             <StarIcon className="custom_star_icon" />
@@ -122,9 +122,9 @@ function Recommendations() {
         </div>
 
         <div className="recommendations_box flex justify-between">
-          <p>Station 3</p>
+          <p>Station 23</p>
           <p className="flex a-center">
-            2
+            1
             <StarIcon className="custom_star_icon" />
           </p>
         </div>
