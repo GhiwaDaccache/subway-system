@@ -1,4 +1,4 @@
-.nav_bar {
+/* .nav_bar {
     padding: 15px 30px;
     font-weight: 500;
     border-bottom: 2px solid var(--clrs-blue-light-);
@@ -60,9 +60,9 @@
     background-color: var(--clrs-blue-light-);
     color: var(--clrs-secondary-) !important;
     border-bottom: 1px solid var(--clrs-blue-dark-) !important;
-  }
-  
-  /* 
+  } */
+
+/* 
   Media Queries BreakPoints : 
     - 320px — 480px: Mobile devices
     - 481px — 768px: iPads, Tablets
@@ -70,8 +70,8 @@
     - 1025px — 1200px: Desktops, large screens
     - 1201px and more —  Extra large screens, TV
   */
-  
-  @media (max-width: 481px) {
+
+/* @media (max-width: 481px) {
     .nav_bar {
       padding: 15px 5px;
       font-weight: 600;
@@ -95,4 +95,4 @@
       color: var(--clrs-blue-light-);
     }
   }
-  
+   */
