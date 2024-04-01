@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('get_example', [RideController::class, "get_example"]);
+Route::post('create_ride', [RideController::class, "create_ride"]);
