@@ -51,15 +51,15 @@ function Form() {
             <input id="user-email" type="email" required />
           </fieldset>
 
-          <fieldset className="flex column">
+          <fieldset className="flex column remove_extra_margin">
             <label htmlFor="password">Password</label>
             <input id="password" type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$" required />
           </fieldset>
 
-          <fieldset className="check_fieldset flex row">
+          <div className="check_fieldset  flex row">
             <input type="checkbox" />
             <label>Remember Me</label>
-          </fieldset>
+          </div>
 
           <button className="submit_btn" type="submit">
             Submit
@@ -76,11 +76,6 @@ function Form() {
             <label htmlFor="password">Password</label>
             <input id="password" type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$" required />
             <span className="forgot_password_text">forgot password?</span>
-          </fieldset>
-
-          <fieldset className="check_fieldset flex row">
-            <input type="checkbox" />
-            <label>Remember Me</label>
           </fieldset>
 
           <button className="submit_btn" type="submit">

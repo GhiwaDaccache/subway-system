@@ -22,9 +22,9 @@ function Navbar({ windowSize }) {
         <ul className="flex align-center">
           <NavItem path="/app/">Home</NavItem>
           <NavItem path="/app/map">Map</NavItem>
-          <NavItem path="/app/station">Station</NavItem>
+          <NavItem path="/app/stations">Stations</NavItem>
           <NavItem path="/app/profile">Profile</NavItem>
-          <li>Treasury</li>
+          <NavItem path="/app/treasury">Treasury</NavItem>
         </ul>
       ) : (
         <div>

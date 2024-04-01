@@ -10,9 +10,13 @@ import Authentication from './pages/authentication';
 import NotFoundPage from './pages/NotFoundPage';
 import Home from './pages/app/pages/home';
 import Profile from './pages/app/pages/profile';
+import Station from './pages/app/pages/Station';
+import Treasury from './pages/app/pages/Treasury';
+import Map from './pages/app/pages/Map';
 import Branch from './pages/branch';
 import Inbox from './pages/branch/Inbox';
 import Reviews from './pages/branch/Reviews';
+
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/admin/pages/dashboard';
@@ -38,6 +42,21 @@ const router = createBrowserRouter([
       {
         path: '/app/profile' /* later on will be modified /app/profile/:profileId' */,
         element: <Profile />,
+      },
+
+      {
+        path: '/app/stations',
+        element: <Station />,
+      },
+
+      {
+        path: '/app/map',
+        element: <Map />,
+      },
+
+      {
+        path: '/app/treasury',
+        element: <Treasury />,
       },
     ],
     errorElement: <NotFoundPage />,

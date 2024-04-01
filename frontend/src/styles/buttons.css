@@ -1,16 +1,16 @@
-.primary-btn{
-    background-color: #49a3e7;
-    height: 40px;
-    border-radius: 3px;
-    padding: 10px;
-    cursor: pointer;
+.primary-btn {
+  background-color: #49a3e7;
+  height: 40px;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.secondary-btn{
-    color: #49a3e7;
-    height: 40px;
-    border: 1px solid #49a3e7;
-    border-radius: 3px;
-    cursor: pointer;
-    padding: 10px;
+.secondary-btn {
+  color: #49a3e7;
+  height: 40px;
+  border: 1px solid #49a3e7;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 10px;
 }
