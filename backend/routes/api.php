@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('create_ride', [RideController::class, "create_ride"]);
+Route::get('ride_from_station', [RideController::class, "ride_from_station"]);
