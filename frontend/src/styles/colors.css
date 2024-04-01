@@ -1,43 +1,43 @@
 .primary-bg {
-    background-color: #3282B8;
+  background-color: #3282b8;
 }
 
 .secondary-bg {
-    background-color: #1B262C;
+  background-color: #1b262c;
 }
 
-.light-blue-bg{
-    background-color: #BBE1FA;
+.light-blue-bg {
+  background-color: #bbe1fa;
 }
 
-.dark-blue-bg{
-    background-color: #0F4C75;
+.dark-blue-bg {
+  background-color: #0f4c75;
 }
 
 .white-bg {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .primary-text {
-    color: #3282B8;
+  color: #3282b8;
 }
-  
+
 .secondary-text {
-    color: #1B262C;
+  color: #1b262c;
 }
 
-.dark-blue-text{
-    color: #0F4C75;
+.dark-blue-text {
+  color: #0f4c75;
 }
 
-.light-blue-text{
-    color: #BBE1FA;
+.light-blue-text {
+  color: #bbe1fa;
 }
 
 .white-text {
-    color: #fff;
+  color: #fff;
 }
 
-.red-text{
-    color: #b60000;
+.red-text {
+  color: #b60000;
 }
