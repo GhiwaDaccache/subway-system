@@ -11,23 +11,23 @@ function RideCardForm(){
     return (
   
 <div className='ride-card flex column'>
-    <p><b>Date: </b> 
+    <p><b>Date </b> 
     <input type="date" value={date} 
     onChange={(e) => setDate(e.target.value)} /></p>
 
-    <p><b>Departure-time: </b> 
+    <p><b>Departure-time </b> 
     <input type="time" value={departureTime} 
     onChange={(e) => setDepartureTime(e.target.value)} /></p>
 
-    <p><b>Arrival-time: </b> 
+    <p><b>Arrival-time </b> 
     <input type="time" value={arrivalTime} 
     onChange={(e) => setArrivalTime(e.target.value)} /></p>
 
-    <p><b>Arrival-station: </b> 
+    <p><b>Arrival-station </b> 
     <input type="text" value={arrivalStation} 
     onChange={(e) => setArrivalStation(e.target.value)} /></p>
 
-    <p><b>Price: </b> 
+    <p><b>Price </b> 
     <input type="number" min="0" value={price} 
     onChange={(e) => setPrice(e.target.value)} /></p>
 
