@@ -2,10 +2,13 @@ import React from 'react';
 import {useState } from "react";
 
 import './StationInfo.css'
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 
 function StationInfo() {  
     const [isWorkingHours, setIsWorkingHours]  = useState(true);
+    const [isFacility, setIsFacility]  = useState(false);
 
 
     return(
@@ -52,13 +55,30 @@ function StationInfo() {
                     <div>
                         <div className='facilities-section flex center '>
                             <div className='flex column gap center'>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
-                                <div className='facility white-bg'>facility name</div>
+                                <div className='facility white-bg flex align-center justify-between'>
+                                    Wheelchair accessibility 
+                                    <span
+                                    onClick={() => {
+                                        !isFacility ? setIsFacility(true) : setIsFacility(false)
+                                      }}>
+                                    {!isFacility ? <RadioButtonUncheckedIcon/> : <RadioButtonCheckedIcon/>}
+                                    </span>
+                                </div>
+
+                                <div className='facility white-bg flex align-center justify-between'>Wifi
+                                <span
+                                    onClick={() => {
+                                        !isFacility ? setIsFacility(true) : setIsFacility(false)
+                                      }}>
+                                    {!isFacility ? <RadioButtonUncheckedIcon/> : <RadioButtonCheckedIcon/>}
+                                    </span>
+                                </div>
+                                
+                                <div className='facility white-bg flex align-center justify-between'>Self check-in</div>
+                                <div className='facility white-bg flex align-center justify-between'>Braille guidelines</div>
+                                <div className='facility white-bg flex align-center justify-between'>Vending machine</div>
+                                <div className='facility white-bg flex align-center justify-between'>information desk</div>
+                                <div className='facility white-bg flex align-center justify-between'>toilets</div>
                             </div>
                         </div>
                     </div>

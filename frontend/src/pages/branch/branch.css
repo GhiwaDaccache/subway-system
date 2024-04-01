@@ -1,0 +1,15 @@
+.rides-container{
+    flex-wrap: wrap;
+    margin: 20px 0px;
+}
+
+.rides-container> div{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.icon{
+    width: 150px;
+    height: 150px;
+}
+
