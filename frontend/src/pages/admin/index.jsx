@@ -1,10 +1,20 @@
 import React from 'react';
-import './admin.css';
+import './components/sidebar.css';
+import './index.css';
+import Sidebar from './components/sidebar';
+import Dashboard from './pages/dashboard';
+import CoinRequest from './pages/coin-requests';
+import InviteManagers from './pages/add-managers';
+import EditBranches from './pages/edit-branches';
+import { Outlet } from 'react-router';
 
 function Admin() {
   return (
-    <div className="admin_container">
-      <h1>Admin</h1>
+    <div className="flex full-w full-h">
+      <Sidebar/>
+      <Outlet/>
+  
+  
     </div>
   );
 }

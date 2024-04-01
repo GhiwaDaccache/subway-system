@@ -1,0 +1,12 @@
+.dashboard-buttons {
+  width: 100%;
+  height: 15%;
+  background-color: #1B262C;
+}
+.dashboard-buttons > button {
+  background-color: #bbe1fa;
+  height: 50px;
+  width: 125px;
+  border-radius: 5px;
+}
+

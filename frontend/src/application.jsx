@@ -13,8 +13,16 @@ import Profile from './pages/app/pages/profile';
 import Station from './pages/app/pages/Station';
 import Treasury from './pages/app/pages/Treasury';
 import Map from './pages/app/pages/Map';
+import Branch from './pages/branch';
+import Inbox from './pages/branch/Inbox';
+import Reviews from './pages/branch/Reviews';
+
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/admin/pages/dashboard';
+import InviteManagers from './pages/admin/pages/add-managers';
+import EditBranches from './pages/admin/pages/edit-branches';
+import CoinRequest from './pages/admin/pages/coin-requests';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +65,40 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <Admin />,
+    errorElement: <NotFoundPage />,
+    children:[
+      {
+        path:'/admin/',
+        element:<Dashboard/>
+      },
+      {
+        path:'/admin/managers',
+        element:<InviteManagers/>
+      },
+      {
+        path:'/admin/branches',
+        element:<EditBranches/>
+      },
+      {
+        path:'/admin/coinrequests',
+        element:<CoinRequest/>
+      }
+    ]
+  },
+
+  {
+    path: '/branch',
+    element: <Branch />,
+    children: [
+      {
+        path: 'pages/branch/Reviews',
+        element: <Reviews />,
+      },
+      {
+        path: 'pages/branch/Inbox' ,
+        element: <Inbox />,
+      },
+    ],
     errorElement: <NotFoundPage />,
   },
 ]);
