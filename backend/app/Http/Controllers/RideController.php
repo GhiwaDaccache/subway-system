@@ -27,6 +27,7 @@ class RideController extends Controller
     public function ride_from_station(Request $req)
     {
         $rideFromStation = Ride::where('departure_station', $req->departure_station_id)->get();
+        
         return response()->json([
             "Ride from station" => $rideFromStation
         ]);
