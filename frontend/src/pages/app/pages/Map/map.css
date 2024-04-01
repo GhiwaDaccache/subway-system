@@ -119,7 +119,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px 10px;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: scroll;
   max-height: 40vh;
 }
@@ -136,6 +136,7 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   font-weight: 500;
+  border-radius: 2px;
 }
 
 .recommendations_box:hover {
@@ -173,5 +174,13 @@ Media Queries BreakPoints :
 @media (max-width: 769px) {
   .map_container_section {
     grid-template-columns: 1fr;
+  }
+
+  .recommendations_box {
+    flex-direction: row !important;
+  }
+
+  .recommendations_box p {
+    flex-direction: row;
   }
 }
