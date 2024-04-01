@@ -35,19 +35,20 @@ function StationInfo() {
                         <h1>New York station 18</h1>
                     </div>
 
-                    <div className='flex column center gap station-hours'>
-                        <p>Working hours: </p>
-
-                        <div className='white-bg flex align-center justify-between'>
-                        <select><option value="Monady, April 1">Monady, April 1</option></select>
-                        </div>
+                    <div className='flex column center station-hours'>
+                        <p>From: </p>
                     
                         <div className='white-bg flex align-center justify-between'>
                         <select><option value="09:00">09:00</option></select>  
                         </div>
                         
+                        <p>Till: </p>
                         <div className='white-bg flex align-center justify-between'>
                         <select><option value="22:00">22:00</option></select>
+                        </div>
+
+                        <div className='white-bg flex align-center justify-between'>
+                        <button className="submit-btn full-w full-h">Submit</button>
                         </div>
                         
                     </div>
