@@ -10,12 +10,12 @@ function ViewManagers() {
         <div>manager@gmail.com</div>
       </div>
       <div className=" flex column justify-around">
+        <div>Manager ID:</div>
         <div>Station Managed:</div>
-        <div>Location:</div>
       </div>
       <div className=" flex column  justify-around">
+        <div>25</div>
         <div>Tripoli station</div>
-        <div>Tripoli</div>
       </div>
     </div>
   );
