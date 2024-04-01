@@ -92,7 +92,7 @@ img,
 picture,
 video,
 canvas,
-svg{
+svg {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -154,7 +154,7 @@ ul {
   --clrs-blue-dark-: #0f4c75;
   --clrs-blue-light-: #bbe1fa;
   --clrs-white-: #ffff;
-
+  --clrs-blue-pure: #60dafa;
   --clrs-secondary-transparent: rgba(27, 38, 44, 0.9);
 }
 
