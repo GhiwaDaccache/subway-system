@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ApiController extends Controller
+class RideController extends Controller
 {
-    //
+    public function get_example()
+    {
+        echo "get example";
+    }
 }
