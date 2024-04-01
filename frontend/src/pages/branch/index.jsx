@@ -16,7 +16,7 @@ function Branch() {
       <Navbar /> 
       <section className='flex'>
         <StationInfo/>
-        <section className='rides-container flex column align-center full-w gap'>
+        <section className='rides-container flex column align-center gap'>
           <div className='flex align-center full-w'>
             <AddIcon  className='icon'/>
             <RideCardForm />
