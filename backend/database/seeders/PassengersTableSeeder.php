@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Passenger;
 
 class PassengersTableSeeder extends Seeder
 {
@@ -13,10 +14,10 @@ class PassengersTableSeeder extends Seeder
     public function run(): void
     {
         Passenger::create([
-            "name"=>'Alex Keen',
-            "email"=>'alex@email.com',
+            "name"=>'john',
+            "email"=>'john@gmail.com',
             "password"=>'123456',
-            "coins"=> 0            
+            "coins"=>0
         ]);
     }
 }
