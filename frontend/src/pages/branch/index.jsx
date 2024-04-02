@@ -11,12 +11,14 @@ import './branch.css';
 function Branch() {
   return (
     <div className="page column">
-      <Navbar />
-      <section className="flex branch-page">
-        <StationInfo />
-        <section className="rides-container flex column align-center gap">
-          <div className="flex align-center full-w">
-            <AddIcon className="icon" />
+
+      <Navbar /> 
+      <section className='flex branch-page'>
+        <StationInfo/>
+        <section className='rides-container flex column align-center gap'>
+          <div className='flex align-center full-w'>
+            <AddIcon  className='icon'/>
+    
             <RideCardForm />
           </div>
           <div className="flex align-center full-w gap">
