@@ -1,0 +1,11 @@
+.profile_container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  padding: 20px;
+  background-color: red;
+  gap: 20px;
+}
+
+.booked_rides {
+  background-color: blue;
+}
