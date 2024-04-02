@@ -93,3 +93,12 @@
 .img_btn_cancel:hover {
   background-color: rgb(187, 187, 187);
 }
+
+.user_infos_container {
+  background-color: white;
+  color: var(--clrs-secondary-);
+  border-radius: 4px;
+  padding: 12px;
+  max-width: 200px;
+  margin: 0 auto;
+}

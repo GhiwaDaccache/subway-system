@@ -30,7 +30,28 @@ function ProfileSidebar() {
         )}
       </div>
 
-      <p>User Name</p>
+      <UserInfos />
+    </div>
+  );
+}
+
+function UserInfos() {
+  return (
+    <div className="user_infos_container">
+      <fieldset className="flex justfiy-between">
+        <label>Name: </label>
+        <p>Your Name</p>
+      </fieldset>
+
+      <fieldset className="flex justfiy-between">
+        <label>email: </label>
+        <p>Your Name</p>
+      </fieldset>
+
+      <fieldset className="flex justfiy-between">
+        <label>address: </label>
+        <p>Your Name</p>
+      </fieldset>
     </div>
   );
 }
