@@ -1,0 +1,28 @@
+.booked_rides {
+  background-color: var(--clrs-secondary-);
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.booked_rides::-webkit-scrollbar {
+  display: none;
+}
+
+.booked_rides_table {
+  width: 100%;
+}
+
+.table_title {
+  color: var(--clrs-primary-);
+  margin-bottom: 20px;
+}
+
+.booked_rides_info {
+  text-align: center;
+  color: var(--clrs-white-);
+  font-size: 15px;
+}
+
+.booked_rides_info td {
+  padding: 10px;
+}
