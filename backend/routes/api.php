@@ -23,5 +23,6 @@ Route::get('ride_from_station', [RideController::class, "ride_from_station"]);
 Route::post('update_facility', [FacilityController::class, "update_facility"]);
 Route::post('update_station_hours', [StationController::class, "update_station_hours"]);
 Route::get('read_reviews', [ReviewController::class, "read_reviews"]);
+Route::post('approve_reviews', [ReviewController::class, "approve_reviews"]);
 
 

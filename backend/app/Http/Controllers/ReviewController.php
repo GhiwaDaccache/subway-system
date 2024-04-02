@@ -15,4 +15,23 @@ class ReviewController extends Controller
             "Reviews" => $reviews
         ]);
     }
+
+    public function approve_reviews(Request $req)
+    {
+        $review = Review::where('id', $req->review_id)->first();
+        $approved = $req->input('approved');
+
+        if (!$review) {
+            return response()->json([
+                'error' => 'Review not found'
+            ], 404);
+        }
+
+        $review->update([
+            "status" => $req->approved]);
+        
+        return response()->json([
+            "message" => "updated successfully"
+        ], 200);
+    }
 }

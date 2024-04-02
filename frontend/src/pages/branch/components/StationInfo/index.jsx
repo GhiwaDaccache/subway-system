@@ -9,6 +9,8 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 function StationInfo() {  
     const [isWorkingHours, setIsWorkingHours]  = useState(true);
     const [isFacility, setIsFacility]  = useState(false);
+    const [opening_time, setOpening_time] = useState('');
+    const [closing_time, setClosing_time] = useState('');
 
 
     return(
@@ -39,16 +41,18 @@ function StationInfo() {
                         <p>From: </p>
                     
                         <div className='white-bg flex align-center justify-between'>
-                        <input type="date" value={date} />   
+                        <input type="time" value={opening_time}
+                        onChange={(e) => setOpening_time(e.target.value)} />  
                         </div>
                         
                         <p>Till: </p>
                         <div className='white-bg flex align-center justify-between'>
-                        <input type="date" value={date} /> 
+                        <input type="time" value={closing_time} 
+                        onChange={(e) => setClosing_time(e.target.value)} />
                          </div>
 
-                        <div className='white-bg flex align-center justify-between'>
-                        <button className="submit-btn full-w full-h">Submit</button>
+                        <div className='secondary-bg flex align-center justify-between'>
+                        <button className="submit-btn full-w full-h white-text">Submit</button>
                         </div>
                         
                     </div>
