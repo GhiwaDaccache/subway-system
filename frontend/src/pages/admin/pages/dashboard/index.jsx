@@ -3,7 +3,8 @@ import StationCard from "./components/stations-card";
 import RideCard from "./components/ride-card";
 import ReviewCard from "./components/review-card";
 import "./index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Dashboard() {
   const [toggleContent, setToggleContent] = useState({
@@ -37,6 +38,28 @@ function Dashboard() {
     }
   };
 
+  const [passengers,setPassengers]=useState([]);
+
+  const loadPassengers = async () => {
+    try{
+
+      const response = await axios.get(
+        "http://127.0.0.1:8000/api/get_all_passengers"
+      );
+
+      setPassengers(response.data);
+  
+    } catch (error) {
+      console.error("Error loading passengers data:", error);
+    }
+  }
+ 
+
+useEffect(() => {
+  loadPassengers();
+}, []);
+// console.log(passengers);
+
   return (
     <div className="admin-container flex column">
       <div className="dashboard-buttons flex justify-around align-center">
@@ -55,7 +78,7 @@ function Dashboard() {
       </div>
 
       <div className="admin-view flex column">
-        {toggleContent.passengers && <PassengerCard />}
+        {toggleContent.passengers && passengers.map((passenger)=>{return <PassengerCard passenger={passenger} key={passenger.id}/>})}
         {toggleContent.stations && <StationCard />}
         {toggleContent.rides && <RideCard />}
         {toggleContent.reviews && <ReviewCard />}
