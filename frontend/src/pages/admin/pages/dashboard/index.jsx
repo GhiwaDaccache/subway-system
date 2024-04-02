@@ -58,7 +58,7 @@ function Dashboard() {
 useEffect(() => {
   loadPassengers();
 }, []);
-// console.log(passengers);
+
 
   return (
     <div className="admin-container flex column">

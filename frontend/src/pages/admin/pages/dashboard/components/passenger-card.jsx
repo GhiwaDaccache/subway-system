@@ -1,5 +1,4 @@
 function PassengerCard({passenger}) {
-  console.log(passenger);
   const {name,email,coins}=passenger;
   return (
     <div className="admin-cards flex   justify-around">
