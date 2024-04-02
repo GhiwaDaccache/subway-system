@@ -37,7 +37,7 @@ function Inputs() {
 function SearchForStation() {
   return (
     <form className="inputs_form_station">
-      <h4>stations:</h4>
+      <h4>Stations:</h4>
       <input type="text" placeholder="Search for station" required />
       <button type="submit">Search</button>
     </form>
@@ -47,7 +47,7 @@ function SearchForStation() {
 function SearchForRides() {
   return (
     <form className="inputs_form_rides">
-      <h4>rides:</h4>
+      <h4>Rides:</h4>
       <div className="search_ride">
         <fieldset>
           <label>form</label>

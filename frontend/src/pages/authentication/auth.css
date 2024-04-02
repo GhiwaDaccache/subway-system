@@ -125,7 +125,7 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-bottom: 30px;
-  background-color: var(--clrs-primary-);
+  background-color: #3282b8;
   color: whitesmoke;
   font-weight: bold;
   border-radius: 4px;
