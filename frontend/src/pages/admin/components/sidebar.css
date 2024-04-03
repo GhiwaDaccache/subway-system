@@ -1,21 +1,15 @@
-/* .side-bar {
+.side-bar {
   min-height: 100vh;
   width: 25%;
   flex-grow: 1;
+  
 }
-<<<<<<< HEAD
-ul {
+.ul-side-bar {
+  padding: 30px;
   font-size: 36px;
   font-family: 'Rubik', sans-serif;
   color: white;
-=======
-ul{
-  font-size: 32px;
-  font-family:  'Rubik', sans-serif;
-  padding: 20px;
-  color:white
->>>>>>> 5a43632fdff01d9f99f8d5cb57eb02126b552e00
 }
-li:hover {
+.ul-side-bar li:hover {
   color: #3282b8;
-} */
+}
