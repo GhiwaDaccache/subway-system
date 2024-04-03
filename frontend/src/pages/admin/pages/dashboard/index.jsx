@@ -39,6 +39,7 @@ function Dashboard() {
   };
 
   const [passengers,setPassengers]=useState([]);
+  const [stations,setStations]=useState([]);
 
   const loadPassengers = async () => {
     try{
@@ -54,9 +55,24 @@ function Dashboard() {
     }
   }
  
+  const loadStations = async () => {
+    try{
+
+      const response = await axios.get(
+        "http://127.0.0.1:8000/api/get_all_stations"
+      );
+
+      setStations(response.data);
+  
+    } catch (error) {
+      console.error("Error loading stations data:", error);
+    }
+  }
+ 
 
 useEffect(() => {
   loadPassengers();
+  loadStations();
 }, []);
 
 
@@ -79,7 +95,7 @@ useEffect(() => {
 
       <div className="admin-view flex column">
         {toggleContent.passengers && passengers.map((passenger)=>{return <PassengerCard passenger={passenger} key={passenger.id}/>})}
-        {toggleContent.stations && <StationCard />}
+        {toggleContent.stations && stations.map((station)=>{return<StationCard station={station} key={station.id}/>})}
         {toggleContent.rides && <RideCard />}
         {toggleContent.reviews && <ReviewCard />}
       </div>

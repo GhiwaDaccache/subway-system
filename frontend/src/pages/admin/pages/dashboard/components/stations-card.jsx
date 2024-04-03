@@ -1,4 +1,5 @@
-function StationCard() {
+function StationCard({station}) {
+  const{name,location,opening_time,closing_time}=station;
   return (
     <div className="admin-cards  flex   justify-around">
       <div className=" flex column  justify-around">
@@ -6,7 +7,7 @@ function StationCard() {
         <div>Manager Name:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>Saida Station</div>
+        <div>{name}</div>
         <div>Manager</div>
       </div>
       <div className=" flex column justify-around">
@@ -14,8 +15,8 @@ function StationCard() {
         <div>Closing hour:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>Saida</div>
-        <div>From 6:00 AM to 10:00 PM</div>
+        <div>{location}</div>
+        <div>From {opening_time} to {closing_time}</div>
       </div>
     </div>
   );
