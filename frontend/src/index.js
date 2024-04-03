@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './styles/buttons.css';
-import './styles/colors.css';
-import './styles/utilities.css';
+import './ui/styles/buttons.css';
+import './ui/styles/colors.css';
+import './ui/styles/utilities.css';
 
 import Application from './application';
 
