@@ -24,5 +24,6 @@ Route::post('update_facility', [FacilityController::class, "update_facility"]);
 
 Route::get('get_all_passengers', [PassengerController::class, "get_all_passengers"]);
 Route::get('get_all_stations', [StationController::class, "get_all_stations"]);
+Route::get('get_all_rides', [RideController::class, "get_all_rides"]);
 
 
