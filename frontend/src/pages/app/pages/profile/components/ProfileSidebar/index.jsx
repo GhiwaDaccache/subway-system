@@ -1,37 +1,78 @@
 import React, { useState } from 'react';
 import './styles.css';
 
+import Overlay from '../../../../../../components/Overlay';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 function ProfileSidebar() {
   const [imgSrc, setImgSrc] = useState('');
   const [togglePopup, setTogglePopup] = useState(false);
 
-  const handleAddingImage = () => {};
+  const handleAddingImage = (src) => {
+    setImgSrc(src);
+    setTogglePopup(false);
+  };
+
+  const handleTogglePopup = () => {
+    setTogglePopup(!togglePopup);
+  };
 
   return (
     <div className="profile_sidebar">
       <div className="profile_img_container">
-        <img className="profile_img" src={imgSrc} alt="" />
+        {imgSrc ? <img className="profile_img" src={imgSrc} alt="" /> : <AddAPhotoIcon className="custom_add_img_icon" onClick={handleTogglePopup} />}
 
-        {!imgSrc && <AddAPhotoIcon className="custom_add_img_icon" onClick={() => setTogglePopup(true)} />}
-
-        <Popup />
+        {togglePopup && (
+          <div>
+            <Popup onTogglePopup={handleTogglePopup} onAddImage={handleAddingImage} />
+            <Overlay />
+          </div>
+        )}
       </div>
+
+      <UserInfos />
     </div>
   );
 }
 
-function Popup() {
+function UserInfos() {
   return (
-    <form className="popup_img">
-      <h3>Add Image src:</h3>
-      <input type="text" required />
-      <div>
+    <div className="user_infos_container">
+      <fieldset className="flex justfiy-between">
+        <label>Name: </label>
+        <p>Your Name</p>
+      </fieldset>
+
+      <fieldset className="flex justfiy-between">
+        <label>email: </label>
+        <p>Your Name</p>
+      </fieldset>
+
+      <fieldset className="flex justfiy-between">
+        <label>address: </label>
+        <p>Your Name</p>
+      </fieldset>
+    </div>
+  );
+}
+
+function Popup({ onTogglePopup, onAddImage }) {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onAddImage(inputValue);
+  };
+
+  return (
+    <form className="popup_img flex column" onSubmit={handleSubmit}>
+      <h4>Add Image src:</h4>
+      <input type="text" required value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
+      <div className="flex popup_btns">
         <button className="img_btn img_btn_submit" type="submit">
-          Submit changes
+          Submit
         </button>
-        <button className="img_btn img_btn_cancel" type="cancel">
+        <button onClick={onTogglePopup} className="img_btn img_btn_cancel" type="button">
           Cancel
         </button>
       </div>

@@ -2,6 +2,7 @@
   padding: 2rem;
   min-height: 11vh;
   font-size: 16px;
+  border-top: 3.5px solid var(--clrs-primary-);
 }
 
 .footer_container::-webkit-scrollbar {
@@ -21,7 +22,7 @@
 
 .footer_container p:hover,
 .footer_custom_icon:hover {
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-primary-);
 }
 
 @media (max-width: 481px) {

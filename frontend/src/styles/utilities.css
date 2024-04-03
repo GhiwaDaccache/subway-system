@@ -149,12 +149,13 @@ ul {
 }
 
 :root {
-  --clrs-primary-: #3282b8;
+  --clrs-primary-: #60dafa;
   --clrs-secondary-: #1b262c;
   --clrs-blue-dark-: #0f4c75;
   --clrs-blue-light-: #bbe1fa;
   --clrs-white-: #ffff;
-  --clrs-blue-pure: #60dafa;
+
+  --clrs-blue-pure-: #60dafa;
   --clrs-secondary-transparent: rgba(27, 38, 44, 0.9);
 }
 
