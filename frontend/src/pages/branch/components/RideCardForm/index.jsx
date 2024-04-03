@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import '../RideCard'
 
 function RideCardForm(){ 
@@ -8,6 +10,21 @@ function RideCardForm(){
     const [arrivalStation, setArrivalStation] = useState('');
     const [price, setPrice] = useState('');
 
+    const addHandler = () => {
+        axios.post("http://localhost:8000/api/create_ride", 
+        {"date":date,
+        "departure_time":departureTime,
+        "arrival_time":arrivalTime,
+        "price":price,
+        "departure_station":1,
+        "arrival_station":arrivalStation})
+        .then((response) =>{
+
+        if(response.data.message !="created successfully"){
+                alert("Failed to update station hours")
+            }
+        })
+    }
     return (
   
 <div className='ride-card flex column'>
@@ -30,6 +47,10 @@ function RideCardForm(){
     <p><b>Price </b> 
     <input type="number" min="0" value={price} 
     onChange={(e) => setPrice(e.target.value)} /></p>
+
+    <button className='primary-btn secondary-bg white-text'
+    onClick={addHandler}
+    >Add Ride</button>
 
 </div>
     )

@@ -60,6 +60,7 @@
     background-color: #F1FAFF;
     padding: 8px;
     border-radius: 5px;
+    min-width: 270px;
 }
   
 .station-hours {

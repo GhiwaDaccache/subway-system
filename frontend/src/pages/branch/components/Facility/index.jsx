@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState } from "react";
 
 import './Facility.css'
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
