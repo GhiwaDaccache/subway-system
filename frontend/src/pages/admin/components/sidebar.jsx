@@ -5,7 +5,7 @@ function Sidebar() {
 
   return (
     <div className="side-bar secondary-bg">
-      <ul>
+      <ul className="ul-side-bar">
         <li onClick={()=>navigate('/admin/')}>Dashboard</li>
         <li onClick={()=>navigate('/admin/managers')}>Invite Managers</li>
         <li onClick={()=>navigate('/admin/branches')}>Edit Branches</li>
