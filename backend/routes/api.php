@@ -7,6 +7,7 @@ use App\Http\Controllers\RideController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\ReviewController;
+use  App\Http\Controllers\Authentication;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,14 @@ Route::post('update_facility', [FacilityController::class, "update_facility"]);
 Route::post('update_station_hours', [StationController::class, "update_station_hours"]);
 Route::get('read_reviews', [ReviewController::class, "read_reviews"]);
 Route::post('approve_reviews', [ReviewController::class, "approve_reviews"]);
+
+
+Route::post('register', [Authentication::class, 'register']);
+Route::post('login', [Authentication::class, 'login']);
+
+Route::group([
+    "middleware" => ["auth:api"],
+], function () {
+    Route::get("refresh", [Authentication::class, 'refreshToken']);
+    Route::get("logout", [Authentication::class, 'logout']);
+});
