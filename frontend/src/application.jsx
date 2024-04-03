@@ -16,6 +16,8 @@ import Map from './pages/app/pages/Map';
 import Branch from './pages/branch';
 import Inbox from './pages/branch/Inbox';
 import Reviews from './pages/branch/Reviews';
+import Stations from './pages/branch/Stations';
+
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -90,6 +92,10 @@ const router = createBrowserRouter([
     path: '/branch',
     element: <Branch />,
     children: [
+      {
+        path:'/branch/',
+        element:<Stations />,
+      },
       {
         path: 'pages/branch/Reviews',
         element: <Reviews />,
