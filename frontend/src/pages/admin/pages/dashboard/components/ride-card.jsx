@@ -1,4 +1,5 @@
-function RideCard() {
+function RideCard({ride}) {
+ const {id,date,departure_time,arrival_time}=ride;
   return (
     <div className="admin-cards  flex   justify-around">
       <div className=" flex column  justify-around">
@@ -7,9 +8,9 @@ function RideCard() {
         <div>Departure Time:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>23</div>
+        <div>{id}</div>
         <div>Saida</div>
-        <div>7:00 AM</div>
+        <div>{departure_time}</div>
       </div>
       <div className=" flex column justify-around">
         <div>Date:</div>
@@ -17,9 +18,9 @@ function RideCard() {
         <div>Arrival Time:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>22/5/2024</div>
+        <div>{date}</div>
         <div>Saida</div>
-        <div>8:00 AM</div>
+        <div>{arrival_time}</div>
       </div>
     </div>
   );
