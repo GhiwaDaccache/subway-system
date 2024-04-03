@@ -1,7 +1,7 @@
 .nav_bar {
   padding: 15px 30px;
   font-weight: 500;
-  border-bottom: 2px solid var(--clrs-blue-light-);
+  border-bottom: 3px solid var(--clrs-primary-);
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
   height: 11vh;
 }
@@ -22,7 +22,7 @@
 }
 
 .nav_bar ul li:hover {
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-primary-);
 }
 
 .navbar_custom_menu_icon {
@@ -31,7 +31,7 @@
   transition: all 0.3s ease-in-out !important;
 }
 .navbar_custom_menu_icon:hover {
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-primary-);
 }
 
 .nav_mobile {
@@ -43,7 +43,7 @@
   flex-direction: column;
   left: 0;
   right: 0;
-  background-color: rgba(27, 38, 44, 0.9);
+  background-color: rgba(27, 38, 44, 0.8);
   gap: 0 !important;
   text-transform: uppercase;
 }
@@ -52,13 +52,13 @@
   width: 100%;
   align-self: center;
   padding: 10px 20px;
-  border-bottom: 1px solid var(--clrs-blue-light-);
+  border-bottom: 1px solid var(--clrs-primary-);
   font-size: 13px !important;
   font-weight: bold;
 }
 
 .nav_mobile li:hover {
-  background-color: var(--clrs-blue-light-);
+  background-color: var(--clrs-primary-);
   color: var(--clrs-secondary-) !important;
   border-bottom: 1px solid var(--clrs-blue-dark-) !important;
 }

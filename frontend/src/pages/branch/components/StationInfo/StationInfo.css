@@ -52,6 +52,7 @@
 .active{
     background-color: #1B262C;
     color: white;
+    font-weight: bold;
 }
 
 .station-title{

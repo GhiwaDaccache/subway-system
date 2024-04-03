@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Station extends Model
 {
     use HasFactory;
-    public function rides()
+    protected $fillable = ["name", "location", "opening_time", "closing_time"];
+        public function rides()
     {
         return $this->hasMany(Ride::class);
     }

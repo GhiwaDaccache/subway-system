@@ -21,11 +21,12 @@
   font-size: 30px !important;
   transition: all 0.3s ease-in-out !important;
   cursor: pointer;
+  color: var(--clrs-primary-);
 }
 
 .custom_backward_icon:hover,
 .custom_compare_arrow:hover {
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-white-);
 }
 
 .inputs_form_station h4 {
@@ -42,24 +43,28 @@
 .inputs_form_station input {
   background-color: rgba(0, 0, 0, 0.2);
   outline: none;
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-primary-);
   width: 80%;
+}
+
+.inputs_form_station input::placeholder {
+  color: rgb(162, 162, 162);
 }
 
 .inputs_form_station button,
 .inputs_form_rides button {
-  background-color: var(--clrs-blue-light-);
-  color: var(--clrs-secondary-);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   width: 20%;
+  background-color: var(--clrs-primary-);
+  color: var(--clrs-secondary-);
 }
 
 .inputs_form_station button:hover,
 .inputs_form_rides button:hover {
   transition: all 0.3s ease-in-out !important;
-  color: whitesmoke;
-  background-color: var(--clrs-blue-dark-);
+  color: var(--clrs-secondary-);
+  background-color: var(--clrs-white-);
 }
 
 .inputs_form_rides {
@@ -75,7 +80,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   outline: none;
-  color: var(--clrs-blue-light-);
+  color: var(--clrs-primary-);
   padding: 5px;
   border-radius: 4px;
 }
@@ -124,8 +129,8 @@
 .recommendations_box {
   background-color: var(--clrs-secondary-);
   padding: 10px;
-  border-left: 6px solid var(--clrs-blue-light-);
-  color: var(--clrs-blue-light-);
+  border-left: 6px solid var(--clrs-primary-);
+  color: var(--clrs-primary-);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   font-weight: 500;

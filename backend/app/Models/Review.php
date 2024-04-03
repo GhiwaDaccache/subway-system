@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Passenger extends Model
+class Review extends Model
 {
     use HasFactory;
-    public function reviews()
+    protected $fillable = ["status"];
+    public function add_review()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Passenger::class);
     }
 }
