@@ -3,14 +3,11 @@ import {useState, useEffect } from "react";
 import axios from 'axios';
 
 import './StationInfo.css'
-import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import Facility from '../Facility';
 
 
 function StationInfo() {  
     const [isWorkingHours, setIsWorkingHours]  = useState(true);
-    const [isFacility, setIsFacility]  = useState(false);
     const [facilities, setfacilities]  = useState({});
     const [opening_time, setOpening_time] = useState('');
     const [closing_time, setClosing_time] = useState('');
@@ -22,7 +19,7 @@ function StationInfo() {
     useEffect(()=>{
         axios.get("http://localhost:8000/api/get_available_facilities/1").then((response)=>{
             setfacilities(response.data.facilities);
-
+            console.log(facilities)
         })
     },[]);
 
@@ -76,21 +73,25 @@ function StationInfo() {
                             <div className='flex column gap center'>
                                 {Object.keys(facilities)
                                     .map((facility)=>{
-                                    return <Facility 
-                                    text={facility}
-                                    status={facilities[facility] === 1}
-                                    clickHandler={() => {
-                                        axios.post("http://localhost:8000/api/update_facility", {...facilities, [facility]:facilities[facility] === 1 ? 0 : 1} ).then((response) =>{
-                                            console.log(response.data.message)
-                                        if(response.data.message === "updated successfully"){
-                                                setfacilities({...facilities, [facility]:facilities[facility] === 1 ? 0 : 1})
-                                            }
-                                        }
-                                            
-                                        )
-                                        
+
+                                        {if(facility != "id" && facility != "station_id" && facility != "created_at" && facility != "updated_at" ){
+
+                                            return( 
+                                            <Facility 
+                                            text={facility}
+                                            status={facilities[facility] === 1}
+
+                                            clickHandler={() => {
+                                                axios.post("http://localhost:8000/api/update_facility", {...facilities, [facility]:facilities[facility] === 1 ? 0 : 1} ).then((response) =>{
+
+                                                if(response.data.message === "updated successfully"){
+                                                        setfacilities({...facilities, [facility]:facilities[facility] === 1 ? 0 : 1})
+                                                    }
+                                                })
+                                            }}
+                                            />)
                                     }}
-                                    />
+                                    
                                 })}
                             </div>
                         </div>

@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('create_ride', [RideController::class, "create_ride"]);
-Route::get('ride_from_station', [RideController::class, "ride_from_station"]);
+Route::get('ride_from_station/{id}', [RideController::class, "ride_from_station"]);
 Route::post('update_facility', [FacilityController::class, "update_facility"]);
 Route::post('update_station_hours', [StationController::class, "update_station_hours"]);
 Route::get('read_reviews', [ReviewController::class, "read_reviews"]);
