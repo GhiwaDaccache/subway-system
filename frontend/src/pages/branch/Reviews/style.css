@@ -1,0 +1,21 @@
+.reviews-table {
+  margin-top: 50px;
+  padding: 15px;
+  width: 70vw;
+  height: 80vh;
+  border-collapse: collapse;
+}
+
+.reviews-th {
+  background-color: #1b262c;
+  height: 45px;
+  text-align: left;
+  padding: 15px;
+}
+
+.reviews-tr {
+  height: 35px;
+  border-bottom: 2px solid rgb(169, 169, 169);
+  padding: 15px;
+  background-color: #f1faff;
+}

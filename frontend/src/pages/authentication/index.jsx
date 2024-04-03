@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './auth.css';
 
-import { reqMethods } from '../../../core/enums/reqMethods';
+import reqMethods from '../../core/enums/reqMethods';
+
 import { useNavigate } from 'react-router';
 
 import Signup from './components/Signup';

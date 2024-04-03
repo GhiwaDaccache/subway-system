@@ -1,23 +1,29 @@
 import React from 'react';
 
-import App from './ui/pages/app';
-import Admin from './ui/pages/admin';
-import Authentication from './ui/pages/authentication';
-import NotFoundPage from './ui/pages/NotFoundPage';
-import Home from './ui/pages/app/pages/home';
-import Profile from './ui/pages/app/pages/profile';
-import Station from './ui/pages/app/pages/Station';
-import Treasury from './ui/pages/app/pages/Treasury';
-import Map from './ui/pages/app/pages/Map';
-import Branch from './ui/pages/branch';
-import Inbox from './ui/pages/branch/Inbox';
-import Reviews from './ui/pages/branch/Reviews';
-import Dashboard from './ui/pages/admin/pages/dashboard';
-import InviteManagers from './ui/pages/admin/pages/add-managers';
-import EditBranches from './ui/pages/admin/pages/edit-branches';
-import CoinRequest from './ui/pages/admin/pages/coin-requests';
+import './styles/buttons.css';
+import './styles/colors.css';
+import './styles/utilities.css';
+
+import App from './pages/app';
+import Admin from './pages/admin';
+import Authentication from './pages/authentication';
+import NotFoundPage from './pages/NotFoundPage';
+import Home from './pages/app/pages/home';
+import Profile from './pages/app/pages/profile';
+import Station from './pages/app/pages/Station';
+import Treasury from './pages/app/pages/Treasury';
+import Map from './pages/app/pages/Map';
+import Branch from './pages/branch';
+import Inbox from './pages/branch/Inbox';
+import Reviews from './pages/branch/Reviews';
+import Stations from './pages/branch/Stations';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/admin/pages/dashboard';
+import InviteManagers from './pages/admin/pages/add-managers';
+import EditBranches from './pages/admin/pages/edit-branches';
+import CoinRequest from './pages/admin/pages/coin-requests';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -84,6 +90,10 @@ const router = createBrowserRouter([
     path: '/branch',
     element: <Branch />,
     children: [
+      {
+        path: '/branch/',
+        element: <Stations />,
+      },
       {
         path: 'pages/branch/Reviews',
         element: <Reviews />,

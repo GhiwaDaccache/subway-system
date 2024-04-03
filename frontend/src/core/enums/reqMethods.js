@@ -4,3 +4,5 @@ export const reqMethods = {
   PUT: 'PUT',
   DELETE: 'DELETE',
 };
+
+export default reqMethods;
