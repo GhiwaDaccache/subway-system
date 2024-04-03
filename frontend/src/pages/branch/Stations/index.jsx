@@ -18,7 +18,6 @@ function Stations() {
     useEffect(()=>{
         axios.get("http://localhost:8000/api/ride_from_station/1").then((response)=>{
             setRides(response.data.rides_from_station);
-  
         })
     },[]);
 
@@ -27,7 +26,6 @@ function Stations() {
         <StationInfo/>
         <section className='rides-container flex column align-center gap'>
             <div className='flex align-center full-w'>
-                <AddIcon className='icon'/>
                 <RideCardForm />
             </div>
             <div className="flex align-center full-w gap">
