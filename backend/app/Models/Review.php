@@ -11,6 +11,6 @@ class Review extends Model
     protected $fillable = ["status"];
     public function add_review()
     {
-        return $this->belongsTo(Passenger::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Contracts\Providers\JWT;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class Authentication extends Controller
+class UserController extends Controller
 {
     // Register (POST - formData)
     public function register(Request $request)
@@ -69,10 +69,22 @@ class Authentication extends Controller
     // Refresh Token (GET)
     public function refreshToken()
     {
+        $newToken = auth()->refresh();
+
+        return response()->json([
+            "status" => true,
+            "message" => "New Access token generated",
+            "token" => $newToken,
+        ]);
     }
 
-    // Logout (GET)
+    // Logout (GET)f
     public function logout()
     {
+        auth()->logout();
+        return response()->json([
+            "status" => true,
+            "message" => "User logged out successfully"
+        ]);
     }
 }
