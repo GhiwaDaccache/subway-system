@@ -29,6 +29,12 @@ class StationController extends Controller
          200);
     }
 
+    public function get_station_by_id($id){
+        $station=Station::where("id", $id)->get()[0];
+        return $station; 
+    }
+
+
 }
 
 

@@ -9,8 +9,9 @@ import Facility from '../Facility';
 function StationInfo() {  
     const [isWorkingHours, setIsWorkingHours]  = useState(true);
     const [facilities, setfacilities]  = useState({});
-    const [opening_time, setOpening_time] = useState('');
-    const [closing_time, setClosing_time] = useState('');
+    const [openingTime, setOpeningTime] = useState('');
+    const [closingTime, setClosingTime] = useState('');
+    const [stationName, setStationName] = useState('');
     
     useEffect(()=>{
         console.log(facilities)
@@ -19,9 +20,25 @@ function StationInfo() {
     useEffect(()=>{
         axios.get("http://localhost:8000/api/get_available_facilities/1").then((response)=>{
             setfacilities(response.data.facilities);
-            console.log(facilities)
         })
     },[]);
+
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/get_station_by_id/1").then((response)=>{
+            setOpeningTime(response.data.opening_time);
+            setClosingTime(response.data.closing_time);
+            setStationName(response.data.name);
+        })
+    },[]);
+
+    const submitHandler = () => {
+        axios.post("http://localhost:8000/api/update_station_hours", {"opening_time":openingTime, "closing_time":closingTime, "station_id":1}).then((response) =>{
+
+        if(response.data.message !="Station hours updated successfully"){
+                alert("Failed to update station hours")
+            }
+        })
+    }
 
 
     return(
@@ -45,25 +62,27 @@ function StationInfo() {
                 {isWorkingHours ? (
                 <div>
                     <div className="flex center station-title">
-                        <h1>New York station 18</h1>
+                        <h1>{stationName}</h1>
                     </div>
 
                     <div className='flex column center station-hours'>
                         <p>From: </p>
                     
                         <div className='white-bg flex align-center justify-between'>
-                        <input type="time" value={opening_time}
-                        onChange={(e) => setOpening_time(e.target.value)} />  
+                        <input type="time" value={openingTime}
+                        onChange={(e) => setOpeningTime(e.target.value)} />  
                         </div>
                         
                         <p>Till: </p>
                         <div className='white-bg flex align-center justify-between'>
-                        <input type="time" value={closing_time} 
-                        onChange={(e) => setClosing_time(e.target.value)} />
+                        <input type="time" value={closingTime} 
+                        onChange={(e) => setClosingTime(e.target.value)} />
                          </div>
 
                         <div className='secondary-bg flex align-center justify-between'>
-                        <button className="submit-btn full-w full-h white-text">Submit</button>
+                        <button className="submit-btn full-w full-h white-text"
+                        onClick={submitHandler}
+                        >Submit</button>
                         </div>
                         
                     </div>
