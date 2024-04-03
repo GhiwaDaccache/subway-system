@@ -26,8 +26,8 @@ return new class extends Migration
 
         Schema::create('passes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("passenger_id");
-            $table->foreign("passenger_id")->references("id")->on("passengers")->onDelete("cascade")->onUpdate("cascade");
+            $table->unsignedBigInteger("user_id"); // Change from passenger_id to user_id
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade"); // Change from passengers to users
             $table->integer("count");
             $table->timestamps();
         });
@@ -37,8 +37,8 @@ return new class extends Migration
             $table->datetime('booking_time');
             $table->unsignedBigInteger("pass_id");
             $table->foreign("pass_id")->references("id")->on("passes")->onDelete("cascade")->onUpdate("cascade");
-            $table->unsignedBigInteger("passenger_id");
-            $table->foreign("passenger_id")->references("id")->on("passengers")->onDelete("cascade")->onUpdate("cascade");
+            $table->unsignedBigInteger("user_id"); // Change from passenger_id to user_id
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade"); // Change from passengers to users
             $table->unsignedBigInteger("ride_id");
             $table->foreign("ride_id")->references("id")->on("rides")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
@@ -47,8 +47,8 @@ return new class extends Migration
         Schema::create('coin_requests', function (Blueprint $table) {
             $table->id();
             $table->integer("amount");
-            $table->unsignedBigInteger("passenger_id");
-            $table->foreign("passenger_id")->references("id")->on("passengers")->onDelete("cascade")->onUpdate("cascade");
+            $table->unsignedBigInteger("user_id"); // Change from passenger_id to user_id
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade"); // Change from passengers to users
             $table->unsignedBigInteger("admin_id");
             $table->foreign("admin_id")->references("id")->on("admins")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
@@ -58,8 +58,8 @@ return new class extends Migration
             $table->id();
             $table->string("message");
             $table->datetime('sent_time');
-            $table->unsignedBigInteger("passenger_id");
-            $table->foreign("passenger_id")->references("id")->on("passengers")->onDelete("cascade")->onUpdate("cascade");
+            $table->unsignedBigInteger("user_id"); // Change from passenger_id to user_id
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade"); // Change from passengers to users
             $table->unsignedBigInteger("manager_id");
             $table->foreign("manager_id")->references("id")->on("managers")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
@@ -69,8 +69,8 @@ return new class extends Migration
             $table->id();
             $table->integer("rating");
             $table->string("description");
-            $table->unsignedBigInteger("passenger_id");
-            $table->foreign("passenger_id")->references("id")->on("passengers")->onDelete("cascade")->onUpdate("cascade");
+            $table->unsignedBigInteger("user_id"); // Change from passenger_id to user_id
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade"); // Change from passengers to users
             $table->unsignedBigInteger("ride_id");
             $table->foreign("ride_id")->references("id")->on("rides")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
@@ -82,6 +82,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('rides');
+        Schema::dropIfExists('passes');
+        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('coin_requests');
+        Schema::dropIfExists('chats');
+        Schema::dropIfExists('reviews');
     }
 };
