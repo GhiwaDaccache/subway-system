@@ -7,22 +7,24 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 
 function Facility(
-    text,
-    clickHandler,
+    {text,
+    status,
+    clickHandler
+    }
 ) {  
-    const [isFacility, setIsFacility]  = useState({
-        wheelchair_accessibility: false, wifi: false, toilets: true
-    });
 
+    console.log(text);
     return(
         <div className='facility white-bg flex align-center justify-between'>
             {text} 
-            <span
+            <span          
             onClick={() => {
-                !isFacility ? setIsFacility(true) : setIsFacility(false)
-                }}>
-            {!isFacility ? <RadioButtonUncheckedIcon value={wheelchair_accessibility}/> : <RadioButtonCheckedIcon/>}
-            </span>
+                clickHandler()
+                }}
+             >
+                {!status ? <RadioButtonUncheckedIcon /> : <RadioButtonCheckedIcon/>}
+             </span>
+            
         </div>
 
     )}

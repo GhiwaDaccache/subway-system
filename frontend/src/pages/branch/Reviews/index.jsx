@@ -11,6 +11,7 @@ const reviews = [
 	{ description: "really good", date: '2024-02-05', ride_id: 6, status: null},
 	{ description: "really good", date: '2024-02-05', ride_id: 4, status: null},
 ]
+
 function Reviews() {  
   return (
     <div className="page flex center">
@@ -29,7 +30,7 @@ function Reviews() {
 							<td>{value.description}</td>
 							<td>{value.date}</td>
 							<td>{value.ride_id}</td>
-							<td>{value.status}</td>
+							<td>{value.status == null ? '22' : value.status == 0 ? '0' : '1'}</td>
 						</tr>
 					)
 				})}
