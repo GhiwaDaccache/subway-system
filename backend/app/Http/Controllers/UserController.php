@@ -87,4 +87,15 @@ class UserController extends Controller
             "message" => "User logged out successfully"
         ]);
     }
+
+
+    public function get_passengers_with_pass(){
+        $passenger_with_pass=User::with('pass')->get();
+   return $passenger_with_pass;
+        
+        } 
+
+
+
+
 }

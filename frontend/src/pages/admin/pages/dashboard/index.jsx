@@ -45,7 +45,7 @@ function Dashboard() {
   const loadPassengers = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_passengers"
+        "http://127.0.0.1:8000/api/get_passengers_with_pass"
       );
 
       setPassengers(response.data);

@@ -36,6 +36,7 @@ Route::post('approve_reviews', [ReviewController::class, "approve_reviews"]);
 
 Route::get('get_all_stations', [StationController::class, "get_all_stations"]);
 Route::get('get_all_rides', [RideController::class, "get_all_rides"]);
+Route::get('get_passengers_with_pass', [UserController::class, "get_passengers_with_pass"]);
 
 
 Route::post('register', [UserController::class, 'register']);
