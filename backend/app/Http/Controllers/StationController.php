@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class StationController extends Controller
 {
+
+   public function get_all_stations(){
+      $allStations=Station::all();
+      return $allStations; 
+      }
+
    public function update_station_hours(Request $request)
     {
         $station = Station::find($request->station_id);
@@ -24,6 +30,7 @@ class StationController extends Controller
          'message' => 'Station hours updated successfully'], 
          200);
     }
+
 }
 
 

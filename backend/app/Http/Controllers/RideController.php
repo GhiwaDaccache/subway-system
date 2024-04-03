@@ -32,4 +32,9 @@ class RideController extends Controller
             "Ride from station" => $rideFromStation
         ]);
     }
+
+    public function get_all_rides(){
+        $allRides=Ride::all();
+        return $allRides; 
+        }
 }
