@@ -61,4 +61,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Review::class);
     }
+    public function coinRequests()
+    {
+        return $this->hasMany(CoinRequest::class);
+    }
 }
