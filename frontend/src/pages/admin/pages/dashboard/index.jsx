@@ -119,20 +119,20 @@ function Dashboard() {
       <div className="admin-view flex column">
         {toggleContent.passengers &&
           passengers.map((passenger) => {
-            return <PassengerCard passenger={passenger} />;
+            return <PassengerCard passenger={passenger} key={passenger.id}/>;
           })}
         {toggleContent.stations &&
           stations.map((station) => {
-            return <StationCard station={station}  />;
+            return <StationCard station={station} key={station.id} />;
           })}
         {toggleContent.rides &&
          rides.map((ride)=>{
-          return <RideCard ride={ride} />   
+          return <RideCard ride={ride} key={ride.id}/>   
          })}
        
         {toggleContent.reviews && 
         reviews.map((review)=>{
-        return <ReviewCard review={review}/>
+        return <ReviewCard review={review} key={review.id}/>
       })}
       </div>
     </div>
