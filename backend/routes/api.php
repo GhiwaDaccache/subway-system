@@ -38,13 +38,16 @@ Route::get('get_all_stations', [StationController::class, "get_all_stations"]);
 Route::get('get_all_rides', [RideController::class, "get_all_rides"]);
 
 
+// Auth
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
 Route::group([
-    "middleware" => ["auth:api"],
+    "middleware" => ["auth.api"],
 ], function () {
     Route::get("refresh", [UserController::class, 'refreshToken']);
     Route::get("logout", [UserController::class, 'logout']);
+    Route::get("user", [UserController::class, 'getUser']);
+    Route::get("users", [UserController::class, 'getAllUsers']);
 });
 

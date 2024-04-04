@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './auth.css';
 
+import reqMethods from '../../core/enums/reqMethods';
+
+import { useNavigate } from 'react-router';
+
+import Signup from './components/Signup';
+import Login from './components/Login';
+
 function Authentication() {
   return (
     <div className="auth_container">
@@ -17,6 +24,43 @@ function Background() {
 
 function Form() {
   const [toggleLoginRegisterInterfaces, setToggleLoginRegisterInterfaces] = useState(true);
+  const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleFormSubmission = (e, isLoggingIn) => {
+    e.preventDefault();
+
+    const apiUrl = isLoggingIn ? 'http://127.0.0.1:8000/api/login' : 'http://127.0.0.1:8000/api/register';
+    const formData = new FormData();
+
+    if (!isLoggingIn) {
+      formData.append('name', name);
+    }
+
+    formData.append('email', email);
+    formData.append('password', password);
+
+    const options = {
+      method: reqMethods.POST,
+      body: formData,
+    };
+
+    fetch(apiUrl, options)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (data.status === true) {
+          navigate('/app/');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
 
   return (
     <div className="auth_submit_container">
@@ -40,48 +84,9 @@ function Form() {
       </div>
 
       {toggleLoginRegisterInterfaces ? (
-        <form className="auth_form_container">
-          <fieldset className="flex column">
-            <label htmlFor="user-name">User Name</label>
-            <input id="user-name" type="text" required />
-          </fieldset>
-
-          <fieldset className="flex column">
-            <label htmlFor="user-email">User Email</label>
-            <input id="user-email" type="email" required />
-          </fieldset>
-
-          <fieldset className="flex column remove_extra_margin">
-            <label htmlFor="password">Password</label>
-            <input id="password" type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$" required />
-          </fieldset>
-
-          <div className="check_fieldset  flex row">
-            <input type="checkbox" />
-            <label>Remember Me</label>
-          </div>
-
-          <button className="submit_btn" type="submit">
-            Submit
-          </button>
-        </form>
+        <Signup setEmail={setEmail} setName={setName} setPassword={setPassword} onFormSubmission={handleFormSubmission} />
       ) : (
-        <form className="auth_form_container">
-          <fieldset className="flex column">
-            <label htmlFor="user-email">User Email</label>
-            <input id="user-email" type="email" required />
-          </fieldset>
-
-          <fieldset className="flex column">
-            <label htmlFor="password">Password</label>
-            <input id="password" type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$" required />
-            <span className="forgot_password_text">forgot password?</span>
-          </fieldset>
-
-          <button className="submit_btn" type="submit">
-            Submit
-          </button>
-        </form>
+        <Login setEmail={setEmail} setPassword={setPassword} onFormSubmission={handleFormSubmission} />
       )}
 
       <p className="guest_text">Enter as a Guest</p>

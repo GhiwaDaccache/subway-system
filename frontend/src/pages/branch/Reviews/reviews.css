@@ -1,21 +1,33 @@
-.reviews-table{
+.reviews-table {
     margin-top: 50px;
-    padding: 15px;
-    width: 70vw;
-    height: 80vh;
+    width: 90%;
     border-collapse: collapse;
-}
-
-.reviews-th{
+    table-layout: fixed;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .reviews-table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .reviews-th {
     background-color: #1b262c;
+    color: white;
     height: 45px;
-    text-align: left;
     padding: 15px;
-}
-
-.reviews-tr{
+    width: auto;
+    text-align: center;
+  }
+  
+  .reviews-tr {
     height: 35px;
     border-bottom: 2px solid rgb(169, 169, 169);
     padding: 15px;
-    background-color: #F1FAFF;
-}
+    background-color: #f1faff;
+  }
+  
+  .custom_status_icons {
+    cursor: pointer;
+  }
