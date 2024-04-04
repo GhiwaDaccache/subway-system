@@ -3,27 +3,19 @@ import './nav.css';
 
 import { useNavigate } from 'react-router-dom';
 
-
-function Navbar({ }) {
-
-
-
+function Navbar({}) {
   return (
+    <div className="full-w">
+      <nav className="nav_bar white-text secondary-bg flex align-center justify-between">
+        <Logo />
 
-    
-    <div className='full-w'>
-    <nav className="nav_bar white-text secondary-bg flex align-center justify-between">
-      <Logo />
-      
         <ul className="flex align-center">
           <NavItem path="/branch">Station</NavItem>
           <NavItem path="pages/branch/Reviews">Reviews</NavItem>
           <NavItem path="pages/branch/Inbox">Inbox</NavItem>
         </ul>
-        </nav>
-      </div>
-      
-    
+      </nav>
+    </div>
   );
 }
 

@@ -7,7 +7,7 @@ import './branch.css';
 function Branch() {
   return (
     <div className="page column">
-      <Navbar /> 
+      <Navbar />
       <Outlet />
     </div>
   );

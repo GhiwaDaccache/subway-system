@@ -19,7 +19,6 @@ import Reviews from './pages/branch/Reviews';
 import Stations from './pages/branch/Stations';
 
 
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/admin/pages/dashboard';
 import InviteManagers from './pages/admin/pages/add-managers';
@@ -68,24 +67,24 @@ const router = createBrowserRouter([
     path: '/admin',
     element: <Admin />,
     errorElement: <NotFoundPage />,
-    children:[
+    children: [
       {
-        path:'/admin/',
-        element:<Dashboard/>
+        path: '/admin/',
+        element: <Dashboard />,
       },
       {
-        path:'/admin/managers',
-        element:<InviteManagers/>
+        path: '/admin/managers',
+        element: <InviteManagers />,
       },
       {
-        path:'/admin/branches',
-        element:<EditBranches/>
+        path: '/admin/branches',
+        element: <EditBranches />,
       },
       {
-        path:'/admin/coinrequests',
-        element:<CoinRequest/>
-      }
-    ]
+        path: '/admin/coinrequests',
+        element: <CoinRequest />,
+      },
+    ],
   },
 
   {
@@ -95,13 +94,14 @@ const router = createBrowserRouter([
       {
         path:'/branch/',
         element:<Stations />,
+
       },
       {
         path: 'pages/branch/Reviews',
         element: <Reviews />,
       },
       {
-        path: 'pages/branch/Inbox' ,
+        path: 'pages/branch/Inbox',
         element: <Inbox />,
       },
     ],

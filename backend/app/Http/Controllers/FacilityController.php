@@ -44,6 +44,15 @@ class FacilityController extends Controller
             ], 201);
         }
     }
+
+    public function get_available_facilities($id){
+        $facilities = Facility::where("station_id", $id)->get()[0];
+
+        return response()->json([
+            "facilities" => $facilities,
+            "message" => "Facilities returned"
+        ]);
+    }
 }
 
 
