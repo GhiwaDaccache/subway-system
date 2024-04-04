@@ -41,6 +41,7 @@ function Dashboard() {
   const [passengers, setPassengers] = useState([]);
   const [stations, setStations] = useState([]);
   const [rides, setRides] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const loadPassengers = async () => {
     try {
@@ -78,10 +79,24 @@ function Dashboard() {
     }
   };
 
+  const loadReviews = async () => {
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/api/get_reviews_with_user_and_ride"
+      );
+
+      setReviews(response.data);
+    } catch (error) {
+      console.error("Error loading reviews data:", error);
+    }
+  };
+  
+
   useEffect(() => {
     loadPassengers();
     loadStations();
     loadRides();
+    loadReviews();
   }, []);
 
   return (
@@ -104,18 +119,21 @@ function Dashboard() {
       <div className="admin-view flex column">
         {toggleContent.passengers &&
           passengers.map((passenger) => {
-            return <PassengerCard passenger={passenger} key={passenger.id} />;
+            return <PassengerCard passenger={passenger} />;
           })}
         {toggleContent.stations &&
           stations.map((station) => {
-            return <StationCard station={station} key={station.id} />;
+            return <StationCard station={station}  />;
           })}
         {toggleContent.rides &&
          rides.map((ride)=>{
-          return <RideCard ride={ride} key={ride.id}/>   
+          return <RideCard ride={ride} />   
          })}
        
-        {toggleContent.reviews && <ReviewCard />}
+        {toggleContent.reviews && 
+        reviews.map((review)=>{
+        return <ReviewCard review={review}/>
+      })}
       </div>
     </div>
   );

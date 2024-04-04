@@ -39,8 +39,8 @@ class ReviewController extends Controller
     {
         $reviews_with_user_ride = Review::with('user')->get();
         
-        return response()->json([
+        return response()->json(
             $reviews_with_user_ride
-        ]);
+        );
     }
 }
