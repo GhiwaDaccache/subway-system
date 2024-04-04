@@ -37,7 +37,13 @@ Route::get('get_station_by_id/{id}', [StationController::class, "get_station_by_
 
 
 Route::get('get_all_stations', [StationController::class, "get_all_stations"]);
-Route::get('get_all_rides', [RideController::class, "get_all_rides"]);
+Route::get('get_all_rides_with_stations_name', [RideController::class, "get_all_rides_with_stations_name"]);
+Route::get('get_passengers_with_pass', [UserController::class, "get_passengers_with_pass"]);
+Route::get('get_stations_with_manager_name', [StationController::class, "get_stations_with_manager_name"]);
+Route::get('get_reviews_with_user_and_ride', [ReviewController::class, "get_reviews_with_user_and_ride"]);
+Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
+
+
 
 
 // Auth

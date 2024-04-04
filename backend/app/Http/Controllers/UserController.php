@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\CoinRequest;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Auth;
@@ -90,6 +91,20 @@ class UserController extends Controller
         ]);
     }
 
+
+    public function get_passengers_with_pass(){
+        $passenger_with_pass=User::with('pass')->get();
+        return $passenger_with_pass;
+        
+        } 
+
+        public function get_coin_request(){
+            $get_coinRequest=CoinRequest::with('user')->get();
+            return $get_coinRequest;
+            
+            } 
+
+
     public function getUser()
     {
         $user = auth()->user();
@@ -105,4 +120,5 @@ class UserController extends Controller
             "users" => $users,
         ]);
     }
+
 }

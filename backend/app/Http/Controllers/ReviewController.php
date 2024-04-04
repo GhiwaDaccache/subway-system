@@ -34,4 +34,13 @@ class ReviewController extends Controller
             "message" => "updated successfully"
         ], 200);
     }
+
+    public function get_reviews_with_user_and_ride()
+    {
+        $reviews_with_user_ride = Review::with('user')->get();
+        
+        return response()->json(
+            $reviews_with_user_ride
+        );
+    }
 }

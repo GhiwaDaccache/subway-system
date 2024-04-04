@@ -41,11 +41,12 @@ function Dashboard() {
   const [passengers, setPassengers] = useState([]);
   const [stations, setStations] = useState([]);
   const [rides, setRides] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const loadPassengers = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_passengers"
+        "http://127.0.0.1:8000/api/get_passengers_with_pass"
       );
 
       setPassengers(response.data);
@@ -57,7 +58,7 @@ function Dashboard() {
   const loadStations = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_stations"
+        "http://127.0.0.1:8000/api/get_stations_with_manager_name"
       );
 
       setStations(response.data);
@@ -69,7 +70,7 @@ function Dashboard() {
   const loadRides = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_rides"
+        "http://127.0.0.1:8000/api/get_all_rides_with_stations_name"
       );
 
       setRides(response.data);
@@ -78,10 +79,24 @@ function Dashboard() {
     }
   };
 
+  const loadReviews = async () => {
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/api/get_reviews_with_user_and_ride"
+      );
+
+      setReviews(response.data);
+    } catch (error) {
+      console.error("Error loading reviews data:", error);
+    }
+  };
+  
+
   useEffect(() => {
     loadPassengers();
     loadStations();
     loadRides();
+    loadReviews();
   }, []);
 
   return (
@@ -104,7 +119,7 @@ function Dashboard() {
       <div className="admin-view flex column">
         {toggleContent.passengers &&
           passengers.map((passenger) => {
-            return <PassengerCard passenger={passenger} key={passenger.id} />;
+            return <PassengerCard passenger={passenger} key={passenger.id}/>;
           })}
         {toggleContent.stations &&
           stations.map((station) => {
@@ -115,7 +130,10 @@ function Dashboard() {
           return <RideCard ride={ride} key={ride.id}/>   
          })}
        
-        {toggleContent.reviews && <ReviewCard />}
+        {toggleContent.reviews && 
+        reviews.map((review)=>{
+        return <ReviewCard review={review} key={review.id}/>
+      })}
       </div>
     </div>
   );
