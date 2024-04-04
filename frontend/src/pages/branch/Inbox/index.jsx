@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './styles.css';
+import InboxSidebar from './InboxSidebar';
+
+import ChatBot from './ChatBot';
 
 function Inbox() {
   return (
-    <div className="page">
-        <h2>Inbox</h2>
+
+    <div className="inbox_container">
+      <InboxSidebar />
+      <ChatBot />
 
     </div>
   );

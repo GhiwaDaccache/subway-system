@@ -27,6 +27,7 @@
   z-index: 2;
   padding: 30px 10px;
   text-align: center;
+  position: relative;
 }
 
 .switch_interfaces_container {
@@ -167,6 +168,12 @@
   bottom: 0;
   background-color: rgba(1, 40, 66, 0.55) !important;
   z-index: 1;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 /* 
