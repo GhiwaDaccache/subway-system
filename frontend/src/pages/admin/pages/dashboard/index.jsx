@@ -57,7 +57,7 @@ function Dashboard() {
   const loadStations = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_stations"
+        "http://127.0.0.1:8000/api/get_stations_with_manager_name"
       );
 
       setStations(response.data);

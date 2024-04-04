@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Station;
+use App\Models\Manager;
 use Illuminate\Http\Request;
 
 class StationController extends Controller
 {
-    public function get_all_stations(){
-        $allStations=Station::all();
-        return $allStations; 
-    }
+    public function get_stations_with_manager_name(){
+
+      $stations_with_manager_name=Station::with('manager')->get();
+        return response()->json($stations_with_manager_name);
+       
+     }
+
 
     public function update_station_hours(Request $request){
         $station = Station::find($request->station_id);
