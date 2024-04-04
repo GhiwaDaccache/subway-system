@@ -1,17 +1,18 @@
 import React from 'react';
-import './RideCard.css'
+import './RideCard.css';
 
-function RideCard(){ 
+function RideCard({ride}){
+    const { date, departure_time, arrival_time, arrival_station, price } = ride;
     return (
   
 <div className='ride-card flex column'>
-    <p><b>Date: </b> 12-04-2024</p>
-    <p><b>Departure-time: </b> 9h10</p>
-    <p><b>Arrivel-time: </b> 9h35</p>
-    <p><b>Arrival-station: </b> NYC 21</p>
-    <p><b>Price: </b> 4$</p>
+    <p><b>Date: </b> {date}</p>
+    <p><b>Departure time: </b> {departure_time}</p>
+    <p><b>Arrival time: </b> {arrival_time}</p>
+    <p><b>Arrival station: </b> {arrival_station}</p>
+    <p><b>Price: </b> {price}</p>
 </div>
     )
-}
+    }
 
-export default RideCard
+export default RideCard;

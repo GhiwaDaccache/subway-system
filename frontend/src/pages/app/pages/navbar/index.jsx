@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LogoutButton from '../../../../components/LogoutButton';
 
 function Navbar({ windowSize }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,9 +23,11 @@ function Navbar({ windowSize }) {
         <ul className="flex align-center">
           <NavItem path="/app/">Home</NavItem>
           <NavItem path="/app/map">Map</NavItem>
-          <NavItem path="/app/stations">Stations</NavItem>
           <NavItem path="/app/profile">Profile</NavItem>
           <NavItem path="/app/treasury">Treasury</NavItem>
+          <NavItem path="/">
+            <LogoutButton />
+          </NavItem>
         </ul>
       ) : (
         <div>

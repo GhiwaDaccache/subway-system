@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CoinRequest;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Contracts\Providers\JWT;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class UserController extends Controller
 {
@@ -46,7 +48,7 @@ class UserController extends Controller
             "password" => "required"
         ]);
 
-        // JWTAuth and attemp
+        // JWTAuth and attempt
         $token = JWTAuth::attempt([
             "email" => $request->email,
             "password" => $request->password,
@@ -70,7 +72,7 @@ class UserController extends Controller
     // Refresh Token (GET)
     public function refreshToken()
     {
-        $newToken = auth()->refresh();
+        $newToken = JWTAuth::refresh();
 
         return response()->json([
             "status" => true,
@@ -79,7 +81,7 @@ class UserController extends Controller
         ]);
     }
 
-    // Logout (GET)f
+    // Logout (GET)
     public function logout()
     {
         auth()->logout();
@@ -103,6 +105,20 @@ class UserController extends Controller
             } 
 
 
+    public function getUser()
+    {
+        $user = auth()->user();
+        return response()->json([
+            "user" => $user,
+        ]);
+    }
 
+    public function getAllUsers()
+    {
+        $users = User::all();
+        return response()->json([
+            "users" => $users,
+        ]);
+    }
 
 }
