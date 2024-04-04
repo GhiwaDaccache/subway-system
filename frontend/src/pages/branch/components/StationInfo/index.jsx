@@ -31,7 +31,7 @@ function StationInfo() {
         axios.post("http://localhost:8000/api/update_station_hours", 
         {"opening_time":openingTime, "closing_time":closingTime, "station_id":1}).then((response) =>{
 
-        if(response.data.message !="Station hours updated successfully"){
+        if(response.data.message !== "Station hours updated successfully"){
                 alert("Failed to update station hours")
             }
         })
@@ -90,7 +90,7 @@ function StationInfo() {
                             {Object.keys(facilities)
                                 .map((facility)=>{
 
-                                    {if(facility != "id" && facility != "station_id" && facility != "created_at" && facility != "updated_at" ){
+                                    {if(facility !== "id" && facility !== "station_id" && facility !== "created_at" && facility !== "updated_at" ){
 
                                         return( 
                                         <Facility 

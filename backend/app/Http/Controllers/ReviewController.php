@@ -12,7 +12,7 @@ class ReviewController extends Controller
         $reviews = Review::orderBy('created_at', 'desc')->get();
         
         return response()->json([
-            "Reviews" => $reviews
+            "reviews" => $reviews
         ]);
     }
 
