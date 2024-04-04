@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-function ViewBranches({ station }) {
+function ViewBranches({ station ,updateStations}) {
   const { id, name, location, opening_time, closing_time, status } = station;
 
   const [isActive, setIsActive] = useState(
@@ -18,6 +18,19 @@ function ViewBranches({ station }) {
   
     
       setIsActive(newStatus === 0 ? "Activate" : "Deactivate");
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+
+  const deleteBranch = async () => {
+    try {
+      await axios.post("http://127.0.0.1:8000/api/delete_station", {
+        "id": id,
+      });
+      
+    updateStations(id);  
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -52,7 +65,7 @@ function ViewBranches({ station }) {
           </button>
         </div>
         <div>
-          <button className="branch-buttons">Remove</button>
+          <button className="branch-buttons" onClick={()=>deleteBranch()}>Remove</button>
         </div>
       </div>
     </div>

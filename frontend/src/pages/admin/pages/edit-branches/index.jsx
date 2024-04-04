@@ -22,13 +22,19 @@ function EditBranches() {
     loadStations();
   }, []);
 
+
+  const updateStationsAfterDelete = (deletedStationId) => {
+    setStations(stations.filter(station => station.id !== deletedStationId));
+  };
+
+
   return (
     <div className="admin-container flex column">
       
  
       <div className="admin-view flex column">
         {stations.map((station) => {
-            return <ViewBranches station={station} key={station.id}/>;
+            return <ViewBranches station={station} key={station.id} updateStations={updateStationsAfterDelete}/>;
           })}
 
       </div>
