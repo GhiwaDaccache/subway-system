@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import './reviews.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
+import './reviews.css'
+
 function Reviews() {
-  const [reviews, setReviews] = useState([
-    { description: 'really good', date: '2024-02-05', ride_id: 1, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 3, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 5, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 7, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 6, status: null },
-    { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-  ]);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8000/api/read_reviews").then((response)=>{
+        setReviews(response.data.reviews);
+    })
+},[]);
+
 
   const handleStatusChange = (index, newStatus) => {
     const updatedReviews = [...reviews];
@@ -39,13 +40,13 @@ function Reviews() {
         <tbody>
           {reviews.map((value, index) => {
             return (
-              <tr className="reviews-tr" key={index}>
+              <tr className="reviews-tr" key={value.id}>
                 <td>{value.description}</td>
-                <td>{value.date}</td>
+                <td>{new Date(value.created_at).toLocaleDateString()}</td>
                 <td>{value.ride_id}</td>
                 <td>
                   {value.status === null ? (
-                    <NullStatus index={index} onStatusChange={handleStatusChange} />
+                    <NullStatus index={value.id} onStatusChange={handleStatusChange} />
                   ) : value.status === 1 ? (
                     <CheckCircleIcon />
                   ) : (
