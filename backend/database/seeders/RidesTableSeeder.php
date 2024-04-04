@@ -14,12 +14,22 @@ class RidesTableSeeder extends Seeder
     public function run(): void
     {
         Ride::create([
+            "date"=>'2024-04-01',
+            "departure_time"=>'09:00:00',
+            "arrival_time"=>'09:25:00',
+            "price"=>5,
+            "departure_station"=>5,
+            "arrival_station"=>4,
+        ]);
+
+        Ride::create([
             "date" => '2024-04-01',
             "departure_time" => '09:00:00',
             "arrival_time" => '09:25:00',
             "price" => 5,
             "departure_station" => 3,
             "arrival_station" => 4,
+
         ]);
 
         Ride::create([
@@ -30,5 +40,7 @@ class RidesTableSeeder extends Seeder
             "departure_station" => 4,
             "arrival_station" => 5,
         ]);
+
+
     }
 }

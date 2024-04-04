@@ -6,9 +6,11 @@ import ChatBot from './ChatBot';
 
 function Inbox() {
   return (
+
     <div className="inbox_container">
       <InboxSidebar />
       <ChatBot />
+
     </div>
   );
 }

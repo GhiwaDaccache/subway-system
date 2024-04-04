@@ -1,24 +1,27 @@
-function ReviewCard() {
+function ReviewCard({review}) {
+  const {rating,description,ride_id,user}=review;
+
+  const userName=user ? user.name : 'no username'
     return (
       <div className="admin-cards flex   justify-around">
         <div className=" flex column  justify-around">
           <div>Passenger Name:</div>
           <div>Ride Number:</div>
-          <div>Description:</div>
+          
         </div>
         <div className=" flex column  justify-around">
-          <div>User User</div>
-          <div>32</div>
-          <div>Great Ride!</div>
+          <div>{userName}</div>
+          <div>{ride_id}</div>
+          
         </div>
         <div className=" flex column justify-around">
-          <div>Date:</div>
+        <div>Description:</div>
           <div>Rating:</div>
           
         </div>
         <div className=" flex column  justify-around">
-          <div>22/5/2024</div>
-          <div>4</div>
+        <div>{description}</div>
+          <div>{rating}</div>
          
         </div>
       </div>

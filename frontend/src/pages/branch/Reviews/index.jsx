@@ -1,41 +1,78 @@
-import React from 'react';
-import './style.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const reviews = [
-  { description: 'really good', date: '2024-02-05', ride_id: 1, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 3, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 5, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 7, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 6, status: null },
-  { description: 'really good', date: '2024-02-05', ride_id: 4, status: null },
-];
+
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+
+import './reviews.css'
 
 function Reviews() {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8000/api/read_reviews/1").then((response)=>{
+        setReviews(response.data.reviews);
+    })
+},[]);
+
+
+  const handleStatusChange = (index, newStatus) => {
+    const updatedReviews = [...reviews];
+    updatedReviews[index].status = newStatus;
+    setReviews(updatedReviews);
+  };
+
   return (
     <div className="page flex center">
       <table className="reviews-table">
-        <tr className="reviews-th white-text">
-          <th>Description</th>
-          <th>Date</th>
-          <th>Ride</th>
-          <th>Status</th>
-        </tr>
+        <thead>
+          <tr className="reviews-th white-text">
+            <th>Description</th>
+            <th>Date</th>
+            <th>Ride</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-        {reviews.map((value, key) => {
-          return (
-            <tr className="reviews-tr" key={key}>
-              <td>{value.description}</td>
-              <td>{value.date}</td>
-              <td>{value.ride_id}</td>
-              <td>{value.status == null ? '22' : value.status == 0 ? '0' : '1'}</td>
-            </tr>
-          );
-        })}
+        <tbody>
+          {reviews.map((value, index) => {
+            return (
+              <tr className="reviews-tr" key={value.id}>
+                <td>{value.description}</td>
+                <td>{new Date(value.created_at).toLocaleDateString()}</td>
+                <td>{value.ride_id}</td>
+                <td>
+                  {value.status === null ? (
+                    <NullStatus index={value.id} onStatusChange={handleStatusChange} />
+                  ) : value.status === 1 ? (
+                    <CheckCircleIcon />
+                  ) : (
+                    <CancelIcon />
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
+
+
+    </div>
+  );
+}
+
+
+function NullStatus({ index, onStatusChange }) {
+  return (
+    <div className="flex a-center justify-evenly">
+      <CheckCircleOutlineIcon value="approved" className="custom_status_icons" onClick={() => onStatusChange(index, 'approved')} />
+      <HighlightOffIcon value="declined" className="custom_status_icons" onClick={() => onStatusChange(index, 'declined')} />
     </div>
   );
 }
 
 export default Reviews;
+

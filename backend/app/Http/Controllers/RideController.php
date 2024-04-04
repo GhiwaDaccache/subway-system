@@ -24,12 +24,17 @@ class RideController extends Controller
         ], 201);
     }
 
-    public function ride_from_station(Request $req)
+    public function ride_from_station($id)
     {
-        $rideFromStation = Ride::where('departure_station', $req->departure_station_id)->get();
+        $rideFromStation = Ride::where('departure_station', $id)->get();
         
         return response()->json([
-            "Ride from station" => $rideFromStation
+            "rides_from_station" => $rideFromStation
         ]);
     }
+
+    public function get_all_rides_with_stations_name(){
+        $allRides=Ride::with('departure_station','arrival_station')->get();
+        return response()->json($allRides);
+        }
 }

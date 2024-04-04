@@ -18,6 +18,7 @@ import Inbox from './pages/branch/Inbox';
 import Reviews from './pages/branch/Reviews';
 import Stations from './pages/branch/Stations';
 
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/admin/pages/dashboard';
 import InviteManagers from './pages/admin/pages/add-managers';
@@ -91,8 +92,9 @@ const router = createBrowserRouter([
     element: <Branch />,
     children: [
       {
-        path: '/branch/',
-        element: <Stations />,
+        path:'/branch/',
+        element:<Stations />,
+
       },
       {
         path: 'pages/branch/Reviews',
