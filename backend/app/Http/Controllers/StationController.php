@@ -14,6 +14,12 @@ class StationController extends Controller
         return response()->json($stations_with_manager_name);
        
      }
+     public function get_all_stations(){
+
+        $stations_details=Station::get();
+          return response()->json($stations_details);
+         
+       }
 
 
     public function update_station_hours(Request $request){
