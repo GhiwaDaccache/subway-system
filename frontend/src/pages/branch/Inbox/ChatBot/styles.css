@@ -53,3 +53,21 @@
   padding: 30px;
   border-radius: 12px;
 }
+
+.textback_input {
+  background-color: white;
+}
+
+.textback_input input {
+  width: 80%;
+  height: 30px;
+  padding: 0 20px;
+  outline: none;
+}
+
+.textback_input button {
+  background-color: var(--clrs-blue-dark-);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
