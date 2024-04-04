@@ -5,6 +5,7 @@ import axios from "axios";
 
 function InviteManagers() {
   const [managers, setManagers] = useState([]);
+  const [email,setEmail]=useState("");
 
   const loadManagers = async () => {
     try {
@@ -21,11 +22,17 @@ function InviteManagers() {
     loadManagers();
   }, []);
 
+
+  const sendInvite= async() =>{
+    try{}
+    catch{}
+  } 
+
   return (
     <div className="admin-container flex column">
       <div className="invite-input flex justify-around align-center">
-        <input className="email-input light-blue-bg" type="email" placeholder="  Enter Manager's Email"></input>
-        <button>Invite</button>
+        <input className="email-input light-blue-bg" type="email" placeholder="  Enter Manager's Email" onChange={(e)=>{setEmail(e.target.value)}}></input>
+        <button onClick={()=>{console.log(email)}}>Invite</button>
       
       </div>
       <div className="admin-view flex column">
