@@ -53,7 +53,9 @@ function Form() {
       fetch(apiUrl, options)
         .then((response) => response.json())
         .then((data) => {
-          if (data.status === true) {
+          console.log(data);
+          if (data.status === 200) {
+            localStorage.setItem('token', data.token);
             navigate('/app/');
           } else {
             errorMessage = data.message;

@@ -3,7 +3,6 @@ import './styles.css';
 
 import Overlay from '../../../../../../components/Overlay';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function ProfileSidebar() {
   const [imgSrc, setImgSrc] = useState('');
