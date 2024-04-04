@@ -33,8 +33,8 @@ class RideController extends Controller
         ]);
     }
 
-    public function get_all_rides(){
-        $allRides=Ride::all();
-        return $allRides; 
+    public function get_all_rides_with_stations_name(){
+        $allRides=Ride::with('departure_station','arrival_station')->get();
+        return response()->json($allRides);
         }
 }
