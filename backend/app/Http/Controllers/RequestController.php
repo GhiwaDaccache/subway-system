@@ -9,7 +9,6 @@ class RequestController extends Controller
 {
    public function coin_request(Request $req)
     {
-        echo $req->user_id;
         $coin_req = CoinRequest::create([
             "amount" => $req->amount,
             "user_id"=> $req->user_id

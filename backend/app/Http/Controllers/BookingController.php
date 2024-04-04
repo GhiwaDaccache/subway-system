@@ -9,12 +9,26 @@ class BookingController extends Controller
 {
     public function get_rides_by_user($id){
 
-        $Bookings = Booking::where('user_id', $id)->with('ride')->get();
+        $bookings = Booking::where('user_id', $id)->with('ride')->get();
         
         return response()->json([
-            "booked_rides" => $Bookings
+            "booked_rides" => $bookings
         ]);
 
+    }
+
+    public function book_ride(Request $req)
+    {
+        $booking = Booking::create([
+            "amount" => $req->amount,
+            "user_id"=> $req->user_id
+        ]);
+        
+
+        return response()->json([
+            'message' => 'Coin request created successfully',
+            'coin_request' => $coin_req
+        ], 201);
     }
 }
 
