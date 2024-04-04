@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder
             "name"=>'user',
             "email"=>'user@gmail.com',
             "password"=>'1234',
-            "coins"=>5,
+            "coins"=>0,
+            "role"=>"admin"
      
         ]);
 
@@ -25,9 +26,19 @@ class UsersTableSeeder extends Seeder
             "name"=>'user2',
             "email"=>'user2@gmail.com',
             "password"=>'12',
-            "coins"=>80,
+            "coins"=>0,
+            "role"=>"manager",
+            "station_id"=>1
      
         ]);
 
+        User::create([
+            "name"=>'user',
+            "email"=>'user3@gmail.com',
+            "password"=>'12',
+            "coins"=>80,
+            "role"=>"passenger"
+     
+        ]);
     }
 }

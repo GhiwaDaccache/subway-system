@@ -14,8 +14,8 @@ class Station extends Model
         return $this->hasMany(Ride::class);
     }
 
-    public function manager()
+    public function user()
     {
-        return $this->hasOne(Manager::class);
+        return $this->hasOne(User::class);
     }
 }
