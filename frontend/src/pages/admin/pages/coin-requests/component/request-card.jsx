@@ -1,6 +1,11 @@
 
 
-function CoinRequestCard() {
+function CoinRequestCard({coinrequest}) {
+  const{amount,user}=coinrequest;
+
+  const userName=user.name;
+  const userID=user.id;
+  
     return (
       <div className="coin-cards flex   justify-around">
         <div className=" flex column  justify-around">
@@ -10,9 +15,9 @@ function CoinRequestCard() {
           <div><button className="coin-buttons">Accept</button></div>
         </div>
         <div className=" flex column  justify-around">
-          <div>33</div>
-          <div>User User</div>
-          <div>250</div>
+          <div>{userID}</div>
+          <div>{userName}</div>
+          <div>{amount}</div>
           <div><button className="coin-buttons">Decline</button></div>
         </div>
       </div>
