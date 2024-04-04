@@ -32,7 +32,7 @@ Route::post('create_ride', [RideController::class, "create_ride"]);
 Route::get('ride_from_station/{id}', [RideController::class, "ride_from_station"]);
 Route::post('update_facility', [FacilityController::class, "update_facility"]);
 Route::post('update_station_hours', [StationController::class, "update_station_hours"]);
-Route::get('read_reviews', [ReviewController::class, "read_reviews"]);
+Route::get('read_reviews/{id}', [ReviewController::class, "read_reviews"]);
 Route::post('approve_reviews', [ReviewController::class, "approve_reviews"]);
 Route::get('get_available_facilities/{id}', [FacilityController::class, "get_available_facilities"]);
 Route::get('get_station_by_id/{id}', [StationController::class, "get_station_by_id"]);
@@ -46,6 +46,8 @@ Route::get('get_passengers_with_pass', [UserController::class, "get_passengers_w
 Route::get('get_stations_with_manager_name', [StationController::class, "get_stations_with_manager_name"]);
 Route::get('get_reviews_with_user_and_ride', [ReviewController::class, "get_reviews_with_user_and_ride"]);
 Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
+
+Route::get('getAllUsers', [UserController::class, "getAllUsers"]);
 
 
 

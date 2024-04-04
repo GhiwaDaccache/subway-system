@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function read_reviews()
+    public function read_reviews($id)
     {
-        $reviews = Review::orderBy('created_at', 'desc')->get();
+        // $reviews = Review::where('station_id', $id)->orderBy('created_at', 'desc')->get();
+        $reviews = Review::whereHas('ride', function ($query) use ($id) {
+            $query->where('departure_station', $id);
+        })->get();
         
         return response()->json([
             "reviews" => $reviews
         ]);
     }
+
+
 
     public function approve_reviews(Request $req)
     {

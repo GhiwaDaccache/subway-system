@@ -1,8 +1,8 @@
 function StationCard({ station }) {
-  const { name, location, opening_time, closing_time, manager } = station;
+  const { name, location, opening_time, closing_time, user } = station;
 
   
-  const managerName = manager ? manager.name : 'No manager';
+  const managerName = user ? user.name : 'No manager';
 
   return (
     <div className="admin-cards flex justify-around">

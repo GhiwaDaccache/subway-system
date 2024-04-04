@@ -13,7 +13,7 @@ function Reviews() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(()=>{
-    axios.get("http://localhost:8000/api/read_reviews").then((response)=>{
+    axios.get("http://localhost:8000/api/read_reviews/1").then((response)=>{
         setReviews(response.data.reviews);
     })
 },[]);

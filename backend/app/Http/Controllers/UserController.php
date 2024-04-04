@@ -28,6 +28,7 @@ class UserController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "password" => Hash::make($request->password),
+            "role"=>"passenger"
         ]);
 
         $token = JWTAuth::fromUser($user);
@@ -115,7 +116,7 @@ class UserController extends Controller
 
     public function getAllUsers()
     {
-        $users = User::all();
+        $users = User::where("role", "passenger")->get();
         return response()->json([
             "users" => $users,
         ]);
