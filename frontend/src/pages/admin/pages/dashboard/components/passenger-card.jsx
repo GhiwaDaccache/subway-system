@@ -1,4 +1,7 @@
-function PassengerCard() {
+function PassengerCard({passenger}) {
+  const {name,email,coins,pass}=passenger;
+
+  const hasPass = pass ? 'Yes' : 'No';
   return (
     <div className="admin-cards flex   justify-around">
       <div className=" flex column  justify-around">
@@ -6,16 +9,16 @@ function PassengerCard() {
         <div>Email:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>ashraf sharaf</div>
-        <div>ashraf@gmail.com</div>
+        <div>{name}</div>
+        <div>{email}</div>
       </div>
       <div className=" flex column justify-around">
         <div>Coins:</div>
         <div>Premium:</div>
       </div>
       <div className=" flex column  justify-around">
-        <div>550</div>
-        <div>Yes</div>
+        <div>{coins}</div>
+        <div>{hasPass}</div>
       </div>
     </div>
   );

@@ -11,6 +11,14 @@ class Ride extends Model
     protected $fillable = ["date","departure_time", "arrival_time", "price", "departure_station", "arrival_station"];
     public function departure_station()
     {
-        return $this->belongsTo(Station::class);
+        return $this->belongsTo(Station::class,'departure_station');
+    }
+    public function arrival_station()
+    {
+        return $this->belongsTo(Station::class,'arrival_station');
+    }
+    public function review()
+    {
+        return $this->hasMany(Review::class);
     }
 }

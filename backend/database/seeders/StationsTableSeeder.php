@@ -27,12 +27,6 @@ class StationsTableSeeder extends Seeder
             "closing_time"=>'2024-04-01 22:30:00'
         ]);
 
-        Station::create([
-            "name"=>'Tripoli st',
-            "location"=>'Tripoli',
-            "opening_time"=>'2024-04-01 09:00:00',
-            "closing_time"=>'2024-04-01 21:30:00'
 
-        ]);
     }
 }

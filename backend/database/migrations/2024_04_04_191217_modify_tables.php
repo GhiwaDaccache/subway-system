@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stations', function (Blueprint $table) {
-            $table->time('opening_time')->change();
-            $table->time('closing_time')->change();
+        Schema::table('coin_requests', function (Blueprint $table) {
+            $table->unsignedBigInteger('admin_id')->nullable()->change();
         });
     }
 
