@@ -4,6 +4,7 @@ import reqMethods from '../../core/enums/reqMethods';
 import { useNavigate } from 'react-router';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import ErrorMessage from './components/ErrorMessage';
 
 const API_BASE_URL = 'http://127.0.0.1:8000/api';
 
@@ -27,6 +28,7 @@ function Form() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleFormSubmission = useCallback(
     (e, isLoggingIn) => {
@@ -34,6 +36,7 @@ function Form() {
 
       const apiUrl = isLoggingIn ? `${API_BASE_URL}/login` : `${API_BASE_URL}/register`;
       const formData = new FormData();
+      let errorMessage = '';
 
       if (!isLoggingIn) {
         formData.append('name', name);
@@ -53,7 +56,8 @@ function Form() {
           if (data.status === true) {
             navigate('/app/');
           } else {
-            console.error('Login/Registration failed:', data.message);
+            errorMessage = data.message;
+            setErrorMessage(errorMessage);
           }
         })
         .catch((error) => {
@@ -90,6 +94,7 @@ function Form() {
         <Login setEmail={setEmail} setPassword={setPassword} onFormSubmission={handleFormSubmission} />
       )}
 
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <p className="guest_text">Enter as a Guest</p>
     </div>
   );

@@ -20,6 +20,23 @@ Media Queries BreakPoints :
     grid-template-columns: 1fr;
   }
 
+  .profile_sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px !important;
+  }
+
+  .profile_img_container {
+    margin: 0 !important;
+  }
+
+  .profile_img_container img {
+    position: static;
+  }
+
   /* .recommendations_box {
     flex-direction: row !important;
   }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Auth;
@@ -12,32 +13,83 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    // public function register(Request $request)
+    // {
+
+    //     try {
+    //         // Data Validation
+    //         $request->validate([
+    //             "name" => "required",
+    //             "email" => "required|email|unique:users",
+    //             "password" => "required",
+    //         ]);
+
+    //         // Data Save
+    //         $user =  User::create([
+    //             "name" => $request->name,
+    //             "email" => $request->email,
+    //             "password" => Hash::make($request->password),
+    //         ]);
+
+    //         $token = JWTAuth::fromUser($user);
+
+    //         // Response: 
+    //         return response()->json([
+    //             "status" => 200,
+    //             "message" => "User registered successfully",
+    //             "token" => $token,
+    //         ]);
+    //     } catch (Exception $e) {
+
+    //         return response()->json([
+    //             "error" => $e,
+    //             "User Already Exist"
+    //         ], 400);
+    //     }
+    // }
+
     // Register (POST - formData)
     public function register(Request $request)
     {
-        // Data Validation
-        $request->validate([
-            "name" => "required",
-            "email" => "required|email|unique:users",
-            "password" => "required",
-        ]);
+        try {
+            // Data Validation
+            $request->validate([
+                "name" => "required",
+                "email" => "required|email|unique:users",
+                "password" => "required",
+            ]);
 
-        // Data Save
-        $user =  User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => Hash::make($request->password),
-        ]);
+            // Data Save
+            $user =  User::create([
+                "name" => $request->name,
+                "email" => $request->email,
+                "password" => Hash::make($request->password),
+            ]);
 
-        $token = JWTAuth::fromUser($user);
+            $token = JWTAuth::fromUser($user);
 
-        // Response: 
-        return response()->json([
-            "status" => true,
-            "message" => "User registered successfully",
-            "token" => $token,
-        ]);
+            // Response: 
+            return response()->json([
+                "status" => 200,
+                "message" => "User registered successfully",
+                "token" => $token,
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+
+            // Validation error occurred
+            return response()->json([
+                "error" => $e->errors(),
+                "message" => "Validation failed. Please check your input.",
+            ], 400);
+        } catch (\Exception $e) {
+            // Other unexpected errors
+            return response()->json([
+                "error" => $e->getMessage(),
+                "message" => "An error occurred while registering the user.",
+            ], 500);
+        }
     }
+
 
     // Login (POST - formData)
     public function login(Request $request)

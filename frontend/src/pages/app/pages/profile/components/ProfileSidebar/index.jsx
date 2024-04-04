@@ -3,6 +3,7 @@ import './styles.css';
 
 import Overlay from '../../../../../../components/Overlay';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function ProfileSidebar() {
   const [imgSrc, setImgSrc] = useState('');
@@ -30,8 +31,27 @@ function ProfileSidebar() {
         )}
       </div>
 
-      <UserInfos />
+      <div className="user_data_container">
+        <UserInfos />
+        <UserCoins />
+      </div>
     </div>
+  );
+}
+
+function UserCoins() {
+  return (
+    <>
+      <div className=" total_coins_container">
+        <span>Total Coins</span>
+        <span>12</span>
+      </div>
+
+      <div className="flex request_coin_container">
+        <input type="number" placeholder="Request Coins" min={0} />
+        <span className="request_coin_arrow">&rarr;</span>
+      </div>
+    </>
   );
 }
 
@@ -45,11 +65,6 @@ function UserInfos() {
 
       <fieldset className="flex justfiy-between">
         <label>email: </label>
-        <p>Your Name</p>
-      </fieldset>
-
-      <fieldset className="flex justfiy-between">
-        <label>address: </label>
         <p>Your Name</p>
       </fieldset>
     </div>
