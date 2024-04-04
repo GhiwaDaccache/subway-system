@@ -57,9 +57,12 @@ function Reviews() {
           })}
         </tbody>
       </table>
+
+
     </div>
   );
 }
+
 
 function NullStatus({ index, onStatusChange }) {
   return (
@@ -71,3 +74,4 @@ function NullStatus({ index, onStatusChange }) {
 }
 
 export default Reviews;
+
