@@ -46,7 +46,7 @@ function Reviews() {
                 <td>
                   {value.status === null ? (
                     <NullStatus index={index} onStatusChange={handleStatusChange} />
-                  ) : value.status === 'approved' ? (
+                  ) : value.status === 1 ? (
                     <CheckCircleIcon />
                   ) : (
                     <CancelIcon />
