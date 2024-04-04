@@ -21,7 +21,24 @@ class StationController extends Controller
          
        }
 
+       public function update_station_status(Request $request){
+        $station = Station::find($request->id);
 
+        if (!$station) {
+            return response()->json(['error' => 'Station not found'], 404);
+        }
+
+        $station->update([
+            'status' => $request->status,
+        ]);
+
+        return response()->json([
+         'message' => 'Station status updated successfully',        
+        ], 
+         200);
+    }
+
+       
     public function update_station_hours(Request $request){
         $station = Station::find($request->station_id);
 
