@@ -18,7 +18,6 @@ class StationController extends Controller
 
         $stations_details=Station::get();
           return response()->json($stations_details);
-         
        }
 
 
