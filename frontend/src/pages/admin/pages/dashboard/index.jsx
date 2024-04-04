@@ -69,7 +69,7 @@ function Dashboard() {
   const loadRides = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/get_all_rides"
+        "http://127.0.0.1:8000/api/get_all_rides_with_stations_name"
       );
 
       setRides(response.data);
