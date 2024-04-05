@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import GetUserData from '../../../core/tools/getUser';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -12,11 +12,19 @@ import './reviews.css'
 function Reviews() {
   const [reviews, setReviews] = useState([]);
 
-  useEffect(()=>{
-    axios.get("http://localhost:8000/api/read_reviews/1").then((response)=>{
-        setReviews(response.data.reviews);
-    })
-},[]);
+  const [stationId, setStationId] = useState(0);
+
+    useEffect(()=>{
+        GetUserData().then((data) => {
+            setStationId(data.user.station_id);
+          });
+
+
+        axios.get(`http://localhost:8000/api/read_reviews/${stationId}`).then((response)=>{
+            setReviews(response.data.reviews);
+        })
+    },[stationId]);
+
 
 
   const handleStatusChange = (index, newStatus) => {

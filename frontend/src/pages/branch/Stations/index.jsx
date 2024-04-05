@@ -5,6 +5,7 @@ import axios from 'axios';
 import StationInfo from '../components/StationInfo';
 import RideCard from '../components/RideCard';
 import RideCardForm from '../components/RideCardForm';
+import GetUserData from '../../../core/tools/getUser';
 
 import '../branch.css';
 
@@ -13,12 +14,18 @@ import '../branch.css';
 function Stations() {
 
     const [rides, setRides]  = useState([]);
+    const [stationId, setStationId] = useState(0);
 
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/ride_from_station/1").then((response)=>{
+        GetUserData().then((data) => {
+            setStationId(data.user.station_id);
+          });
+
+
+        axios.get(`http://localhost:8000/api/ride_from_station/${stationId}`).then((response)=>{
             setRides(response.data.rides_from_station);
         })
-    },[]);
+    },[stationId]);
 
     return (
     <section className='flex branch-page'>

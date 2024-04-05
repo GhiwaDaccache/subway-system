@@ -1,35 +1,43 @@
 import React from 'react';
 import {useState, useEffect } from "react";
 import axios from 'axios';
-
+import GetUserData from '../../../../core/tools/getUser';
 import './StationInfo.css'
 import Facility from '../Facility';
 
 
 function StationInfo() {  
     const [isWorkingHours, setIsWorkingHours]  = useState(true);
-    const [facilities, setfacilities]  = useState({});
+    const [facilities, setFacilities]  = useState({});
     const [openingTime, setOpeningTime] = useState('');
     const [closingTime, setClosingTime] = useState('');
     const [stationName, setStationName] = useState('');
 
-    useEffect(()=>{
-        axios.get("http://localhost:8000/api/get_available_facilities/1").then((response)=>{
-            setfacilities(response.data.facilities);
-        })
-    },[]);
+    const [stationId, setStationId] = useState(0);
 
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/get_station_by_id/1").then((response)=>{
-            setOpeningTime(response.data.opening_time);
-            setClosingTime(response.data.closing_time);
-            setStationName(response.data.name);
-        })
-    },[]);
+        GetUserData().then((data) => {
+            setStationId(data.user.station_id);
+          });
+
+        if(stationId != 0){
+            axios.get(`http://localhost:8000/api/get_available_facilities/${stationId}`).then((response)=>{
+                setFacilities(response.data.facilities);
+            })
+    
+            axios.get(`http://localhost:8000/api/get_station_by_id/${stationId}`).then((response)=>{
+                setOpeningTime(response.data.opening_time);
+                setClosingTime(response.data.closing_time);
+                setStationName(response.data.name);
+            })
+        }
+    },[stationId]);
+
+
 
     const submitHandler = () => {
         axios.post("http://localhost:8000/api/update_station_hours", 
-        {"opening_time":openingTime, "closing_time":closingTime, "station_id":1}).then((response) =>{
+        {"opening_time":openingTime, "closing_time":closingTime, "station_id":stationId}).then((response) =>{
 
         if(response.data.message !== "Station hours updated successfully"){
                 alert("Failed to update station hours")
@@ -89,11 +97,11 @@ function StationInfo() {
                         <div className='flex column gap center'>
                             {Object.keys(facilities)
                                 .map((facility)=>{
-
                                     {if(facility !== "id" && facility !== "station_id" && facility !== "created_at" && facility !== "updated_at" ){
 
                                         return( 
                                         <Facility 
+                                        key={facility}
                                         text={facility}
                                         status={facilities[facility] === 1}
 
@@ -101,7 +109,7 @@ function StationInfo() {
                                             axios.post("http://localhost:8000/api/update_facility", {...facilities, [facility]:facilities[facility] === 1 ? 0 : 1} ).then((response) =>{
 
                                             if(response.data.message === "updated successfully"){
-                                                    setfacilities({...facilities, [facility]:facilities[facility] === 1 ? 0 : 1})
+                                                    setFacilities({...facilities, [facility]:facilities[facility] === 1 ? 0 : 1})
                                                 }
                                             })
                                         }}
