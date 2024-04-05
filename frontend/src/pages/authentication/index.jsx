@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './auth.css';
-
 import reqMethods from '../../core/enums/reqMethods';
-
 import { useNavigate } from 'react-router';
-
 import Signup from './components/Signup';
 import Login from './components/Login';
+import ErrorMessage from './components/ErrorMessage';
+
+const API_BASE_URL = 'http://127.0.0.1:8000/api';
 
 function Authentication() {
   return (
@@ -23,72 +23,80 @@ function Background() {
 }
 
 function Form() {
-  const [toggleLoginRegisterInterfaces, setToggleLoginRegisterInterfaces] = useState(true);
+  const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const navigate = useNavigate();
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleFormSubmission = (e, isLoggingIn) => {
-    e.preventDefault();
+  const handleFormSubmission = useCallback(
+    (e, isLoggingIn) => {
+      e.preventDefault();
 
-    const apiUrl = isLoggingIn ? 'http://127.0.0.1:8000/api/login' : 'http://127.0.0.1:8000/api/register';
-    const formData = new FormData();
+      const apiUrl = isLoggingIn ? `${API_BASE_URL}/login` : `${API_BASE_URL}/register`;
+      const formData = new FormData();
+      let errorMessage = '';
 
-    if (!isLoggingIn) {
-      formData.append('name', name);
-    }
+      if (!isLoggingIn) {
+        formData.append('name', name);
+      }
 
-    formData.append('email', email);
-    formData.append('password', password);
+      formData.append('email', email);
+      formData.append('password', password);
 
-    const options = {
-      method: reqMethods.POST,
-      body: formData,
-    };
+      const options = {
+        method: reqMethods.POST,
+        body: formData,
+      };
 
-    fetch(apiUrl, options)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.status === true) {
-          navigate('/app/');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+      fetch(apiUrl, options)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.status === 200) {
+            localStorage.setItem('token', data.token);
+            navigate('/app/');
+          } else {
+            errorMessage = data.message;
+            setErrorMessage(errorMessage);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    },
+    [email, name, navigate, password]
+  );
 
   return (
     <div className="auth_submit_container">
       <div className="switch_interfaces_container flex align-center justify-center">
         <span
           onClick={() => {
-            setToggleLoginRegisterInterfaces(true);
+            setIsLoginFormVisible(true);
           }}
-          className={toggleLoginRegisterInterfaces ? 'auth_active' : 'auth_hidden'}
+          className={isLoginFormVisible ? 'auth_active' : 'auth_hidden'}
         >
           Sign up
         </span>
         <span
           onClick={() => {
-            setToggleLoginRegisterInterfaces(false);
+            setIsLoginFormVisible(false);
           }}
-          className={!toggleLoginRegisterInterfaces ? 'auth_active' : 'auth_hidden'}
+          className={!isLoginFormVisible ? 'auth_active' : 'auth_hidden'}
         >
           Login
         </span>
       </div>
 
-      {toggleLoginRegisterInterfaces ? (
+      {isLoginFormVisible ? (
         <Signup setEmail={setEmail} setName={setName} setPassword={setPassword} onFormSubmission={handleFormSubmission} />
       ) : (
         <Login setEmail={setEmail} setPassword={setPassword} onFormSubmission={handleFormSubmission} />
       )}
 
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <p className="guest_text">Enter as a Guest</p>
     </div>
   );

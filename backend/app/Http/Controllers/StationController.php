@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Station;
-use App\Models\Manager;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StationController extends Controller
 {
     public function get_stations_with_manager_name(){
 
-      $stations_with_manager_name=Station::with('manager')->get();
+      $stations_with_manager_name=Station::with('user')->get();
         return response()->json($stations_with_manager_name);
        
      }
@@ -18,7 +18,6 @@ class StationController extends Controller
 
         $stations_details=Station::get();
           return response()->json($stations_details);
-         
        }
 
        public function update_station_status(Request $request){

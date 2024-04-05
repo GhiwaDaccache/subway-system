@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import GetUserData from '../../../../core/tools/getUser';
 
 import '../RideCard'
 
@@ -10,13 +11,24 @@ function RideCardForm(){
     const [arrivalStation, setArrivalStation] = useState('');
     const [price, setPrice] = useState('');
 
+    const [stationId, setStationId] = useState();
+
+    useEffect(()=>{
+        GetUserData().then((data) => {
+            setStationId(data.user.station_id);
+            console.log(data.user.station_id);
+            console.log(stationId);
+          });      
+            
+        },[stationId])
+
     const addHandler = () => {
         axios.post("http://localhost:8000/api/create_ride", 
         {"date":date,
         "departure_time":departureTime,
         "arrival_time":arrivalTime,
         "price":price,
-        "departure_station":1,
+        "departure_station":stationId,
         "arrival_station":arrivalStation})
         .then((response) =>{
 

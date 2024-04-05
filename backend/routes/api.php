@@ -8,7 +8,12 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\EmailController;
+
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RequestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +36,12 @@ Route::post('create_ride', [RideController::class, "create_ride"]);
 Route::get('ride_from_station/{id}', [RideController::class, "ride_from_station"]);
 Route::post('update_facility', [FacilityController::class, "update_facility"]);
 Route::post('update_station_hours', [StationController::class, "update_station_hours"]);
-Route::get('read_reviews', [ReviewController::class, "read_reviews"]);
+Route::get('read_reviews/{id}', [ReviewController::class, "read_reviews"]);
 Route::post('approve_reviews', [ReviewController::class, "approve_reviews"]);
 Route::get('get_available_facilities/{id}', [FacilityController::class, "get_available_facilities"]);
 Route::get('get_station_by_id/{id}', [StationController::class, "get_station_by_id"]);
+Route::get('get_rides_by_user/{id}', [BookingController::class, "get_rides_by_user"]);
+Route::post('coin_request', [RequestController::class, "coin_request"]);
 
 
 Route::get('get_all_stations', [StationController::class, "get_all_stations"]);
@@ -48,6 +55,8 @@ Route::post('delete_station', [StationController::class, "delete_station"]);
 Route::post('handle_coin_request', [UserController::class, "handle_coin_request"]);
 Route::post('send_Email', [EmailController::class, "send_Email"]);
 
+
+Route::get('getAllUsers', [UserController::class, "getAllUsers"]);
 
 
 
