@@ -8,6 +8,7 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
 Route::post('update_station_status', [StationController::class, "update_station_status"]);
 Route::post('delete_station', [StationController::class, "delete_station"]);
 Route::post('handle_coin_request', [UserController::class, "handle_coin_request"]);
+Route::post('send_Email', [EmailController::class, "send_Email"]);
 
 
 
