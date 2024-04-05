@@ -24,7 +24,6 @@ function Navbar({ windowSize }) {
           <NavItem path="/app/">Home</NavItem>
           <NavItem path="/app/map">Map</NavItem>
           <NavItem path="/app/profile">Profile</NavItem>
-          <NavItem path="/app/treasury">Treasury</NavItem>
           <NavItem path="/">
             <LogoutButton />
           </NavItem>
@@ -40,7 +39,6 @@ function Navbar({ windowSize }) {
               <NavItem path="/app/map">Map</NavItem>
               <NavItem path="/app/station">Station</NavItem>
               <NavItem path="/app/profile">Profile</NavItem>
-              <li>Treasury</li>
             </ul>
           )}
         </div>

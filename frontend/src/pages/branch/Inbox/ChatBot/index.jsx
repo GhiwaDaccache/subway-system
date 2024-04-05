@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles.css';
 
+import SendIcon from '@mui/icons-material/Send';
+
 function ChatBot() {
   return (
     <div className="inbox_chatbot">
@@ -45,8 +47,11 @@ function Messages() {
 
 function TextBack() {
   return (
-    <div>
-      <input type="text" />
+    <div className="textback_input">
+      <input type="text" placeholder="Write your message..." />
+      <button>
+        Send <SendIcon />
+      </button>
     </div>
   );
 }
