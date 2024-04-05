@@ -22,13 +22,17 @@ function CoinRequest() {
     loadCoinRequests();
   }, []);
 
+  const updateRequests = (deletedRequestId) => {
+    setCoinRequests(coinRequests.filter(coinrequest => coinrequest.id !== deletedRequestId));
+  };
+
   return (
     <div className="admin-container flex column">
 
       <div className="coin-requests-view flex center">
           
           {coinRequests.map((coinrequest) => {
-            return <CoinRequestCard coinrequest={coinrequest} key={coinrequest.id}/>;
+            return <CoinRequestCard coinrequest={coinrequest} key={coinrequest.id} updateRequests={updateRequests}/>;
           })}
           
       </div>
