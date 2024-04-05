@@ -20,7 +20,24 @@ class StationController extends Controller
           return response()->json($stations_details);
        }
 
+       public function update_station_status(Request $request){
+        $station = Station::find($request->id);
 
+        if (!$station) {
+            return response()->json(['error' => 'Station not found'], 404);
+        }
+
+        $station->update([
+            'status' => $request->status,
+        ]);
+
+        return response()->json([
+         'message' => 'Station status updated successfully',        
+        ], 
+         200);
+    }
+
+       
     public function update_station_hours(Request $request){
         $station = Station::find($request->station_id);
 
@@ -38,12 +55,28 @@ class StationController extends Controller
          200);
     }
 
+
     public function get_station_by_id($id){
         $station=Station::where("id", $id)->get()[0];
         return $station; 
     }
 
 
-}
+
+    public function delete_station(Request $request){
+    
+    $station = Station::find($request->id);
+
+    if (!$station) {
+                return response()->json(['message' => 'Station not found'], 404);
+    }
+    
+    $station->delete();
+    return response()->json(['message' => 'Station deleted successfully'], 200);
+        
+        }
+        
+    }
+
 
 

@@ -8,8 +8,12 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\EmailController;
+
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RequestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +50,11 @@ Route::get('get_passengers_with_pass', [UserController::class, "get_passengers_w
 Route::get('get_stations_with_manager_name', [StationController::class, "get_stations_with_manager_name"]);
 Route::get('get_reviews_with_user_and_ride', [ReviewController::class, "get_reviews_with_user_and_ride"]);
 Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
+Route::post('update_station_status', [StationController::class, "update_station_status"]);
+Route::post('delete_station', [StationController::class, "delete_station"]);
+Route::post('handle_coin_request', [UserController::class, "handle_coin_request"]);
+Route::post('send_Email', [EmailController::class, "send_Email"]);
+
 
 Route::get('getAllUsers', [UserController::class, "getAllUsers"]);
 
