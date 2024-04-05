@@ -11,6 +11,7 @@ function CoinRequestCard({coinrequest, updateRequests}) {
     try {
       const coinsAmount = isAccepted ? amount : 0;
       await axios.post("http://127.0.0.1:8000/api/handle_coin_request", {
+        "id":id,
         "user_id": userID,
         "amount":coinsAmount
       });

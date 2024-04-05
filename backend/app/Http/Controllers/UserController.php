@@ -137,7 +137,9 @@ class UserController extends Controller
         $user->update([
             "coins" => $newBalance
         ]);
-    
+        
+        $coinRequest=CoinRequest::find($request->id);
+        $coinRequest->delete();
         return response()->json(['message' => 'User coins updated successfully'], 200); 
     }
 
