@@ -7,13 +7,27 @@ import CoinRequest from './pages/coin-requests';
 import InviteManagers from './pages/add-managers';
 import EditBranches from './pages/edit-branches';
 import { Outlet } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+
+import GetUserData from '../../core/tools/getUser';
 
 function Admin() {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // send an api to check from the jwt if I'm an admin
-    // check if admin
-    // if not clear localstograge
-    // -> login
+    GetUserData()
+      .then((data) => {
+        console.log(data);
+
+        if (data.user.role !== 'admin') {
+          navigate.push('/');
+
+          localStorage.clear();
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
   });
 
   return (
