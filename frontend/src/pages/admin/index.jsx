@@ -14,21 +14,27 @@ import GetUserData from '../../core/tools/getUser';
 function Admin() {
   const navigate = useNavigate();
 
+  // Admin component
   useEffect(() => {
     GetUserData()
       .then((data) => {
         console.log(data);
 
-        if (data.user.role !== 'admin') {
-          navigate.push('/');
+        if (data.user.role === 'admin') {
+          navigate('/admin');
+          return;
+        }
 
+        if (data.user.role !== 'admin') {
+          navigate('/');
           localStorage.clear();
+          return;
         }
       })
       .catch((error) => {
         console.error('Error fetching user data:', error);
       });
-  });
+  }, []);
 
   return (
     <div className="flex full-w full-h">

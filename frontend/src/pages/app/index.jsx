@@ -11,23 +11,28 @@ export const useUser = () => useContext(UserContext);
 const App = () => {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+  const fetchData = async () => {
+    try {
+      const data = await GetUserData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await GetUserData();
-        if (data.user.role !== 'passenger') {
-          navigate('/');
-          localStorage.clear();
-        } else {
-          setUserData(data);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+      if (data.user.role === 'passenger') {
+        navigate('/app');
+        return;
       }
-    };
+
+      if (data.user.role !== 'passenger') {
+        navigate('/');
+        localStorage.clear();
+      } else {
+        setUserData(data);
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+  useEffect(() => {
     fetchData();
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -26,14 +26,14 @@ class UserController extends Controller
                 "password" => "required",
             ]);
 
-        // Data Save
-        $user =  User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => Hash::make($request->password),
-            "role"=>"passenger"
-        ]);
-          
+            // Data Save
+            $user =  User::create([
+                "name" => $request->name,
+                "email" => $request->email,
+                "password" => Hash::make($request->password),
+                "role" => "passenger"
+            ]);
+
 
             $token = JWTAuth::fromUser($user);
 
@@ -80,6 +80,7 @@ class UserController extends Controller
                     "status" => 200,
                     "message" => "User logged in successfully",
                     "token" => $token,
+                    'user' => auth()->user()
                 ]);
             } else {
                 throw new \Exception("Invalid login details.");
@@ -90,12 +91,6 @@ class UserController extends Controller
                 "error" => $e->errors(),
                 "message" => "Validation failed. Please check your input.",
             ], 400);
-        } catch (\Exception $e) {
-            // Other unexpected errors
-            return response()->json([
-                "error" => $e->getMessage(),
-                "message" => "An error occurred during login.",
-            ], 500);
         }
     }
 
@@ -123,17 +118,17 @@ class UserController extends Controller
     }
 
 
-    public function get_passengers_with_pass(){
-        $passenger_with_pass=User::with('pass')->get();
+    public function get_passengers_with_pass()
+    {
+        $passenger_with_pass = User::with('pass')->get();
         return $passenger_with_pass;
-        
-        } 
+    }
 
-        public function get_coin_request(){
-            $get_coinRequest=CoinRequest::with('user')->get();
-            return $get_coinRequest;
-            
-            } 
+    public function get_coin_request()
+    {
+        $get_coinRequest = CoinRequest::with('user')->get();
+        return $get_coinRequest;
+    }
 
 
     public function getUser()
@@ -144,6 +139,7 @@ class UserController extends Controller
         ]);
     }
 
+
     public function getAllUsers()
     {
         $users = User::where("role", "passenger")->get();
@@ -151,5 +147,4 @@ class UserController extends Controller
             "users" => $users,
         ]);
     }
-
 }

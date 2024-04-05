@@ -54,9 +54,20 @@ function Form() {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+
           if (data.status === 200) {
             localStorage.setItem('token', data.token);
-            navigate('/app/');
+
+            const role = data.user.role;
+            if (role === 'manager') {
+              navigate('/branch');
+            } else if (role === 'passenger') {
+              navigate('/app');
+            } else if (role === 'admin') {
+              navigate('/admin');
+            }
+
+            // navigate('/app/');
           } else {
             errorMessage = data.message;
             setErrorMessage(errorMessage);

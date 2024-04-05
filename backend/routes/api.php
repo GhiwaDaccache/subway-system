@@ -49,7 +49,9 @@ Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
 
 Route::get('getAllUsers', [UserController::class, "getAllUsers"]);
 
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 
 // Auth
@@ -64,4 +66,3 @@ Route::group([
     Route::get("user", [UserController::class, 'getUser']);
     Route::get("users", [UserController::class, 'getAllUsers']);
 });
-
