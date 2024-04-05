@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useUser } from '../../../..';
 import './styles.css';
 
 import Overlay from '../../../../../../components/Overlay';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 function ProfileSidebar() {
+  const userData = useUser();
+  const { coins, email, name } = userData.user;
+
   const [imgSrc, setImgSrc] = useState('');
   const [togglePopup, setTogglePopup] = useState(false);
 
@@ -31,19 +35,19 @@ function ProfileSidebar() {
       </div>
 
       <div className="user_data_container">
-        <UserInfos />
-        <UserCoins />
+        <UserInfos name={name} email={email} />
+        <UserCoins coins={coins} />
       </div>
     </div>
   );
 }
 
-function UserCoins() {
+function UserCoins({ coins }) {
   return (
     <>
       <div className=" total_coins_container">
         <span>Total Coins</span>
-        <span>12</span>
+        <span>{coins}</span>
       </div>
 
       <div className="flex request_coin_container">
@@ -54,17 +58,17 @@ function UserCoins() {
   );
 }
 
-function UserInfos() {
+function UserInfos({ name, email }) {
   return (
     <div className="user_infos_container">
       <fieldset className="flex justfiy-between">
         <label>Name: </label>
-        <p>Your Name</p>
+        <p>{name}</p>
       </fieldset>
 
       <fieldset className="flex justfiy-between">
         <label>email: </label>
-        <p>Your Name</p>
+        <p>{email}</p>
       </fieldset>
     </div>
   );
