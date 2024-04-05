@@ -44,6 +44,7 @@ Route::get('get_reviews_with_user_and_ride', [ReviewController::class, "get_revi
 Route::get('get_coin_request', [UserController::class, "get_coin_request"]);
 Route::post('update_station_status', [StationController::class, "update_station_status"]);
 Route::post('delete_station', [StationController::class, "delete_station"]);
+Route::post('handle_coin_request', [UserController::class, "handle_coin_request"]);
 
 
 

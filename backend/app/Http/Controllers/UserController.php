@@ -121,4 +121,24 @@ class UserController extends Controller
         ]);
     }
 
+
+    public function handle_coin_request(Request $request)
+    {
+        $user = User::find($request->user_id);
+    
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+    
+        $prevBalance = $user->coins; 
+        $balance = $request->amount;
+        $newBalance = (int)$prevBalance + (int)$balance;
+    
+        $user->update([
+            "coins" => $newBalance
+        ]);
+    
+        return response()->json(['message' => 'User coins updated successfully'], 200); 
+    }
+
 }

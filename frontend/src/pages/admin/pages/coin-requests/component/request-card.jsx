@@ -1,10 +1,11 @@
-
-
 function CoinRequestCard({coinrequest}) {
   const{amount,user}=coinrequest;
-
   const userName=user.name;
   const userID=user.id;
+  
+
+
+
   
     return (
       <div className="coin-cards flex   justify-around">
